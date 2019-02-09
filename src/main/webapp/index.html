@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Index</title>
+<link href="css/index.css" rel="stylesheet">
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+</head>
+<body>
+
+	<main>
+		<form class="valid" id="validation" method="post" action="/Calendar/UserValidate">
+			<table>
+				<tr>
+					<td>
+						<label for="login">Login</label> 
+						<input type="text" name="login" required value="test">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label for="password">Password</label>
+						<input type="text" name="password" required value="test">
+					</td>
+				</tr>
+				<tr>
+					<td colspan="7">
+						<input type="submit"  value="Submit"></button>
+					</td>
+				</tr>
+			</table>
+			<div id="result"> </div>
+		</form>
+	
+		<script>
+			/* прикрепить событие submit к формам с классом sendForm*/
+/* 			$(".valid").submit(function(event) {
+
+				$.ajax({
+					url: 'http://localhost:8080/Calendar/UserValidate',
+					type: 'post',
+					dataType: 'html',
+					data: formNm.serialize(),//собираем данные с формы
+					success: function(response) { //обработать результат 
+						//по ссылке с формой находим тег div и вставляем туда ответ
+						find("div").html("data has been sent"); 
+					}
+				});
+				return false;	
+			}); */
+		</script>
+	</main>
+</body>
+</html>

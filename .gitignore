@@ -1,0 +1,9 @@
+# Lines starting with '#' are considered comments.
+
+.classpath
+
+.project
+
+.settings/
+
+target/

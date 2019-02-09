@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Calendar week</title>
+	<link href="css/week.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+ 	<script src="scrips/week.js"></script>
+ 	<script>
+		var date = new Date(); 
+		
+		var sunday = getSunday();
+		var monday = getMonday();
+		var tuesday = getTuesday();
+		var wednesday = getWednesday();
+		var thursday = getThursday();
+		var friday = getFriday();
+		var saturday = getSaturday();
+		
+		function getWeekDay(date) {
+		    var days = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
+		    return days[date.getDay()];
+		}
+		
+		function getMonthYear(date) {
+		    var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July',
+		    		'August', 'September', 'October', 'November', 'December'];
+		    return months[date.getMonth()];
+		}
+		
+		function getSunday() {
+			return new Date((1900 + date.getYear()), date.getMonth(), (date.getDate() - date.getDay() + 7));
+		};
+
+		function getMonday() {
+			return new Date((1900 + date.getYear()), date.getMonth(), (date.getDate() - date.getDay() + 1));
+		};
+
+		function getTuesday() {
+			return new Date((1900 + date.getYear()), date.getMonth(), (date.getDate() - date.getDay() + 2))
+		};
+
+		function getWednesday() {
+			return new Date((1900 + date.getYear()), date.getMonth(), (date.getDate() - date.getDay() + 3))
+		};
+
+		function getThursday() {
+			return new Date((1900 + date.getYear()), date.getMonth(), (date.getDate() - date.getDay() + 4))
+		};
+
+		function getFriday() {
+			return new Date((1900 + date.getYear()), date.getMonth(), (date.getDate() - date.getDay() + 5))
+		};
+
+		function getSaturday() {
+			return new Date((1900 + date.getYear()), date.getMonth(), (date.getDate() - date.getDay() + 6))
+		};
+ 	</script>
+</head>
+
+<body>	
+<div id="main">
+	<main>
+	<table class="outer_table">
+		<tr>
+			<th class="outer_table" colspan="7">
+				<script>    
+					document.write(getMonthYear(date) + ' ' + (1900 + date.getYear()));
+				</script>
+			</th>
+		</tr>
+		
+		
+		<tr>
+			<td align="center" class="table_hat">
+				<script>    
+				    if (getWeekDay(date) === 'monday') {
+				    	 document.write('<strong>▼</strong><br>');
+				    }
+			    </script>
+			    ПН
+			</td>
+			<td align="center" class="table_hat">
+				<script>    
+				    if (getWeekDay(date) === 'tuesday') {
+				    	 document.write('<strong>▼</strong><br>');
+				    }
+			    </script>
+			    ВТ
+			</td>
+			<td align="center" class="table_hat">
+				<script>    
+				    if (getWeekDay(date) === 'wednesday') {
+				    	 document.write('<strong>▼</strong><br>');
+				    }
+			    </script>
+			    СР
+			</td>
+			<td align="center" class="table_hat">
+				<script>    
+				    if (getWeekDay(date) === 'thursday') {
+				    	 document.write('<strong>▼</strong><br>');
+				    }					
+			    </script>
+			    ЧТ
+			</td>
+			<td align="center" class="table_hat">
+				<script>    
+				    if (getWeekDay(date) === 'friday') {
+				    	 document.write('<strong>▼</strong><br>');
+				    }
+			    </script>
+			    ПТ
+			</td>
+			<td align="center" class="table_hat">
+				<script>    
+				    if (getWeekDay(date) === 'saturday') {
+				    	 document.write('<strong>▼</strong><br>');
+				    }
+			    </script>
+			    СБ
+			</td>
+			<td align="center" class="table_hat">
+				<script>    
+				    if (getWeekDay(date) === 'sunday') {
+				    	 document.write('<strong>▼</strong><br>');
+				    }
+			    </script>
+			    ВС
+			</td>
+		</tr>
+		<tr id='second_font'>
+			<td>
+				<form class="sendForm" id="1">
+				<table class="inner_table">
+					<tr><td>
+						<script>    
+						document.write("<input type=\"hidden\" name=\"date\" value=\"" 
+								+ (1900 + monday.getYear()) + "-" + monday.getMonth() + "-" + monday.getDate() + "\">"); 
+								//+ monday.toLocaleDateString() + "\">");
+						</script>
+					</td></tr>
+					<tr><td class="inner_table_radio">
+						<p><input type="radio" name="mood" value="GOOD"> GOOD
+						<p><input type="radio" name="mood" value="NORMAL" checked> NORM
+						<p><input type="radio" name="mood" value="BAD"> BAD</td></tr>
+					<tr><td class="inner_table">
+						<input type="checkbox" name="useful" value="true">
+						<i class="fa fa-list-ol fa-lg"></i></td></tr>
+					<tr><td class="inner_table">
+						<input type="checkbox" name="work" value="true">
+						<i class="fa fa-industry fa-lg"></i></td></tr>	
+					<tr><td class="inner_table">
+						<input type="checkbox" name="study" value="true">
+						<i class="fa fa-graduation-cap fa-lg"></i></td></tr>
+					<tr><td class="inner_table">
+						<input type="checkbox" name="learnLanguag" value="true">
+						<i class="fa fa-language fa-lg"></i></td></tr>
+					<tr><td class="inner_table">
+						<input type="checkbox" name="sport" value="true">
+						<i class="fa fa-futbol-o fa-lg"></i></td></tr>
+					<tr><td class="inner_table">
+						<input type="checkbox" name="alcohol" value="true">
+						<i class="fa fa-glass fa-lg"></i></td></tr>
+					<tr><td class="inner_table">
+						<input type="checkbox" name="smoke" value="true">
+						<i class="fa fa-fire fa-lg"></i></td></tr>
+					<tr><td class="inner_table">
+						<input class="result" type="submit" value="Submit"></td></tr>
+				</table>
+				<div id="result"></div>
+				</form>
+			</td>
+			<td>	
+				<form class="sendForm" id="2">
+				<table class="inner_table">
+					<tr><td>
+						<script>    
+						document.write("<input type=\"hidden\" name=\"date\" value=\"" 
+								+ (1900 + tuesday.getYear()) + "-" + tuesday.getMonth() + "-" + tuesday.getDate() + "\">");
+								//+ tuesday.toLocaleDateString() + "\">");
+						</script>
+					</td></tr>
+					<tr><td class="inner_table_radio">
+						<p><input type="radio" name="mood" value="GOOD"> GOOD
+						<p><input type="radio" name="mood" value="NORMAL" checked> NORM
+						<p><input type="radio" name="mood" value="BAD"> BAD</td></tr>
+					<tr><td class="inner_table">
+						<input type="checkbox" name="useful" value="true">
+						<i class="fa fa-list-ol fa-lg"></i></td></tr>
+					<tr><td class="inner_table">
+						<input type="checkbox" name="work" value="true">
+						<i class="fa fa-industry fa-lg"></i></td></tr>	
+					<tr><td class="inner_table">
+						<input type="checkbox" name="study" value="true">
+						<i class="fa fa-graduation-cap fa-lg"></i></td></tr>
+					<tr><td class="inner_table">
+						<input type="checkbox" name="learnLanguag" value="true">
+						<i class="fa fa-language fa-lg"></i></td></tr>
+					<tr><td class="inner_table">
+						<input type="checkbox" name="sport" value="true">
+						<i class="fa fa-futbol-o fa-lg"></i></td></tr>
+					<tr><td class="inner_table">
+						<input type="checkbox" name="alcohol" value="true">
+						<i class="fa fa-glass fa-lg"></i></td></tr>
+					<tr><td class="inner_table">
+						<input type="checkbox" name="smoke" value="true">
+						<i class="fa fa-fire fa-lg"></i></td></tr>
+					<tr><td class="inner_table">
+						<input class="result" type="submit" value="Submit"></td></tr>
+				</table>
+				<div id="result"> </div>
+				</form>
+			</td>	
+			<td>	
+				<form class="sendForm" id="3">
+				<table class="inner_table">
+					<tr><td>
+						<script>    
+						document.write("<input type=\"hidden\" name=\"date\" value=\"" 
+								+ (1900 + wednesday.getYear()) + "-" + wednesday.getMonth() + "-" + wednesday.getDate() + "\">");
+								//+ wednesday.toLocaleDateString() + "\">");
+						</script>
+					</td></tr>
+					<tr><td class="inner_table_radio">
+						<p><input type="radio" name="mood" value="GOOD"> GOOD
+						<p><input type="radio" name="mood" value="NORMAL" checked> NORM
+						<p><input type="radio" name="mood" value="BAD"> BAD</td></tr>
+					<tr><td class="inner_table">
+						<input type="checkbox" name="useful" value="true">
+						<i class="fa fa-list-ol fa-lg"></i></td></tr>
+					<tr><td class="inner_table">
+						<input type="checkbox" name="work" value="true">
+						<i class="fa fa-industry fa-lg"></i></td></tr>	
+					<tr><td class="inner_table">
+						<input type="checkbox" name="study" value="true">
+						<i class="fa fa-graduation-cap fa-lg"></i></td></tr>
+					<tr><td class="inner_table">
+						<input type="checkbox" name="learnLanguag" value="true">
+						<i class="fa fa-language fa-lg"></i></td></tr>
+					<tr><td class="inner_table">
+						<input type="checkbox" name="sport" value="true">
+						<i class="fa fa-futbol-o fa-lg"></i></td></tr>
+					<tr><td class="inner_table">
+						<input type="checkbox" name="alcohol" value="true">
+						<i class="fa fa-glass fa-lg"></i></td></tr>
+					<tr><td class="inner_table">
+						<input type="checkbox" name="smoke" value="true">
+						<i class="fa fa-fire fa-lg"></i></td></tr>
+					<tr><td class="inner_table">
+						<input class="result" type="submit" value="Submit"></td></tr>
+				</table>
+				<div id="result"> </div>
+				</form>
+			</td>	
+			<td>	
+				<form class="sendForm" id="4">
+				<table class="inner_table">
+					<tr><td>
+						<script>    
+						document.write("<input type=\"hidden\" name=\"date\" value=\"" 
+								+ (1900 + thursday.getYear()) + "-" + thursday.getMonth() + "-" + thursday.getDate() + "\">");
+								//+ thursday.toLocaleDateString() + "\">");
+						</script>
+					</td></tr>
+					<tr><td class="inner_table_radio">
+						<p><input type="radio" name="mood" value="GOOD"> GOOD
+						<p><input type="radio" name="mood" value="NORMAL" checked> NORM
+						<p><input type="radio" name="mood" value="BAD"> BAD</td></tr>
+					<tr><td class="inner_table">
+						<input type="checkbox" name="useful" value="true">
+						<i class="fa fa-list-ol fa-lg"></i></td></tr>
+					<tr><td class="inner_table">
+						<input type="checkbox" name="work" value="true">
+						<i class="fa fa-industry fa-lg"></i></td></tr>	
+					<tr><td class="inner_table">
+						<input type="checkbox" name="study" value="true">
+						<i class="fa fa-graduation-cap fa-lg"></i></td></tr>
+					<tr><td class="inner_table">
+						<input type="checkbox" name="learnLanguag" value="true">
+						<i class="fa fa-language fa-lg"></i></td></tr>
+					<tr><td class="inner_table">
+						<input type="checkbox" name="sport" value="true">
+						<i class="fa fa-futbol-o fa-lg"></i></td></tr>
+					<tr><td class="inner_table">
+						<input type="checkbox" name="alcohol" value="true">
+						<i class="fa fa-glass fa-lg"></i></td></tr>
+					<tr><td class="inner_table">
+						<input type="checkbox" name="smoke" value="true">
+						<i class="fa fa-fire fa-lg"></i></td></tr>
+					<tr><td class="inner_table">
+						<input class="result" type="submit" value="Submit"></td></tr>
+				</table>
+				<div id="result"> </div>
+				</form>
+			</td>	
+			<td>
+				<form class="sendForm" id="5">
+				<table class="inner_table">
+					<tr><td>
+						<script>    
+						document.write("<input type=\"hidden\" name=\"date\" value=\"" 
+								+ (1900 + friday.getYear()) + "-" + friday.getMonth() + "-" + friday.getDate() + "\">");
+								//+ friday.toLocaleDateString() + "\">");
+						</script>
+					</td></tr>
+					<tr><td class="inner_table_radio">
+						<p><input type="radio" name="mood" value="GOOD"> GOOD
+						<p><input type="radio" name="mood" value="NORMAL" checked> NORM
+						<p><input type="radio" name="mood" value="BAD"> BAD</td></tr>
+					<tr><td class="inner_table">
+						<input type="checkbox" name="useful" value="true">
+						<i class="fa fa-list-ol fa-lg"></i></td></tr>
+					<tr><td class="inner_table">
+						<input type="checkbox" name="work" value="true">
+						<i class="fa fa-industry fa-lg"></i></td></tr>	
+					<tr><td class="inner_table">
+						<input type="checkbox" name="study" value="true">
+						<i class="fa fa-graduation-cap fa-lg"></i></td></tr>
+					<tr><td class="inner_table">
+						<input type="checkbox" name="learnLanguag" value="true">
+						<i class="fa fa-language fa-lg"></i></td></tr>
+					<tr><td class="inner_table">
+						<input type="checkbox" name="sport" value="true">
+						<i class="fa fa-futbol-o fa-lg"></i></td></tr>
+					<tr><td class="inner_table">
+						<input type="checkbox" name="alcohol" value="true">
+						<i class="fa fa-glass fa-lg"></i></td></tr>
+					<tr><td class="inner_table">
+						<input type="checkbox" name="smoke" value="true">
+						<i class="fa fa-fire fa-lg"></i></td></tr>
+					<tr><td class="inner_table">
+						<input class="result" type="submit" value="Submit"></td></tr>
+				</table>
+				<div id="result"> </div>
+				</form>
+			</td>					
+			<td>	
+				<form class="sendForm" id="6">
+				<table class="inner_table">
+					<tr><td>
+						<script>    
+						document.write("<input type=\"hidden\" name=\"date\" value=\"" 
+								+ (1900 + saturday.getYear()) + "-" + saturday.getMonth() + "-" + saturday.getDate() + "\">");
+								//+ saturday.toLocaleDateString() + "\">");
+						</script>
+					</td></tr>
+					<tr><td class="inner_table_radio">
+						<p><input type="radio" name="mood" value="GOOD"> GOOD
+						<p><input type="radio" name="mood" value="NORMAL" checked> NORM
+						<p><input type="radio" name="mood" value="BAD"> BAD</td></tr>
+					<tr><td class="inner_table">
+						<input type="checkbox" name="useful" value="true">
+						<i class="fa fa-list-ol fa-lg"></i></td></tr>
+					<tr><td class="inner_table">
+						<input type="checkbox" name="work" value="true">
+						<i class="fa fa-industry fa-lg"></i></td></tr>	
+					<tr><td class="inner_table">
+						<input type="checkbox" name="study" value="true">
+						<i class="fa fa-graduation-cap fa-lg"></i></td></tr>
+					<tr><td class="inner_table">
+						<input type="checkbox" name="learnLanguag" value="true">
+						<i class="fa fa-language fa-lg"></i></td></tr>
+					<tr><td class="inner_table">
+						<input type="checkbox" name="sport" value="true">
+						<i class="fa fa-futbol-o fa-lg"></i></td></tr>
+					<tr><td class="inner_table">
+						<input type="checkbox" name="alcohol" value="true">
+						<i class="fa fa-glass fa-lg"></i></td></tr>
+					<tr><td class="inner_table">
+						<input type="checkbox" name="smoke" value="true">
+						<i class="fa fa-fire fa-lg"></i></td></tr>
+					<tr><td class="inner_table">
+						<input class="result" type="submit" value="Submit"></td></tr>
+				</table>
+				<div id="result"> </div>
+				</form>
+			</td>	
+			<td>	
+				<form class="sendForm" id="0">
+				<table class="inner_table">
+					<tr><td>
+						<script>    
+						document.write("<input type=\"hidden\" name=\"date\" value=\"" 
+								+ (1900 + sunday.getYear()) + "-" + sunday.getMonth() + "-" + sunday.getDate() + "\">");
+								//+ sunday.toLocaleDateString() + "\">");
+						</script>
+					</td></tr>
+					<tr><td class="inner_table_radio">
+						<p><input type="radio" name="mood" value="GOOD"> GOOD
+						<p><input type="radio" name="mood" value="NORMAL" checked> NORM
+						<p><input type="radio" name="mood" value="BAD"> BAD</td></tr>
+					<tr><td class="inner_table">
+						<input type="checkbox" name="useful" value="true">
+						<i class="fa fa-list-ol fa-lg"></i></td></tr>
+					<tr><td class="inner_table">
+						<input type="checkbox" name="work" value="true">
+						<i class="fa fa-industry fa-lg"></i></td></tr>	
+					<tr><td class="inner_table">
+						<input type="checkbox" name="study" value="true">
+						<i class="fa fa-graduation-cap fa-lg"></i></td></tr>
+					<tr><td class="inner_table">
+						<input type="checkbox" name="learnLanguag" value="true">
+						<i class="fa fa-language fa-lg"></i></td></tr>
+					<tr><td class="inner_table">
+						<input type="checkbox" name="sport" value="true">
+						<i class="fa fa-futbol-o fa-lg"></i></td></tr>
+					<tr><td class="inner_table">
+						<input type="checkbox" name="alcohol" value="true">
+						<i class="fa fa-glass fa-lg"></i></td></tr>
+					<tr><td class="inner_table">
+						<input type="checkbox" name="smoke" value="true">
+						<i class="fa fa-fire fa-lg"></i></td></tr>
+					<tr><td class="inner_table">
+						<input class="result" type="submit" value="Submit"></td></tr>
+				</table>
+				<div id="result"> </div>
+				</form>
+			</td>		
+	</table>
+	
+		<script>
+		
+			/* прикрепить событие submit к формам с классом sendForm*/
+			$(".sendForm").submit(function(event) {
+
+				var formID = $(this).attr("id"); // Получение ID формы на которой была нажата кнопка
+	            var formNm = $('#' + formID); //получение ссылки на форму
+
+				$.ajax({
+					url: '/Calendar/AddDay',
+					type: 'post',
+					dataType: 'html',
+					data: formNm.serialize(),//собираем данные с формы
+					success: function(response) { //обработать результат 
+						//$(formNm).find("div").html("data has been sent"); //по ссылке с формой находим тег div и вставляем туда ответ
+						document.getElementByClass('result').onclick = function(){
+							alert('data has been sent');
+							}
+					}
+				});
+				return false;
+				
+			});
+		</script>
+	</main>
+	
+		</div>
+	
+	<div class="side_bar">
+	 <main>
+	 	<table class="side_bar">
+				<tr class="side_bar">
+					<td class="side_bar">
+						MENU
+					</td>
+				</tr>
+				<tr class="side_bar">
+					<td class="side_bar">
+						<a href="index.html">Change user</a>
+					</td>
+				</tr>
+				<tr class="side_bar">
+					<td class="side_bar">
+						<a href="month.jsp">Show this month</a>
+					</td>
+				</tr>
+				<tr class="side_bar">
+					<td class="side_bar">
+						<a href="info.html">Information</a>
+					</td>
+				</tr>
+			</table>
+	 </main>
+	</div>
+</body>
+</html>

@@ -1,0 +1,80 @@
+@import
+	url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700');
+
+@import
+	url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css')
+	;
+
+*, *::before, *::after {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html, body {
+	height: 100vh;
+}
+
+body {
+	display: flex;
+	align-items: flex-start;
+	justify-content: center;
+	padding: 40px;
+	font: 'Open Sans', sans-serif;
+	color: #345;
+	background: #f0f2f4;
+}
+
+p:not(:last-child){
+	margin:0020px;
+}
+
+main {
+	max-width: 1200px;
+	padding: 40px;
+	border: 1px solid rgba(0, 0, 0, .2);
+	background: #fff;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, .1);
+}
+
+table {
+	font-family: "Open Sans", "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+	text-align: center;
+	border-collapse: collapse;
+	border-spacing: 5px;
+	background: white;
+	padding: 40px;
+	margin: 30px;
+}
+
+tr {
+	height: 70px;
+}
+
+td {
+	width: 400px;
+	text-align: centr;
+	font-size: 17px;
+	font-color: black;
+}
+
+div {
+	padding: 30px;
+}
+
+a {
+	font-weight: 600;
+	text-align: center;
+	color: #F56433;
+}
+
+tr.side_bar {
+	height: 70px;
+}
+
+td.side_bar {
+	font-weight: bold;
+	width: 200px;
+	text-align: left;
+	font-size: 17px;
+}

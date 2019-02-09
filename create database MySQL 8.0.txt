@@ -1,0 +1,25 @@
+CREATE DATABASE mood_calendar;
+
+USE mood_calendar;
+
+CREATE TABLE users (
+	id INT NOT NULL AUTO_INCREMENT, 
+	name VARCHAR(20), 
+	pass_word VARCHAR(20), 
+	privacy_policy VARCHAR(20), 
+	PRIMARY KEY (id)
+	);
+
+CREATE TABLE days (
+	id INT NOT NULL, 
+	day DATETIME,
+	mood ENUM('good', 'normal', 'bad'),
+	useful TINYINT(1),
+	worked TINYINT(1),
+	study TINYINT(1),
+	learn_lang TINYINT(1),
+	sport TINYINT(1),
+	alcohol TINYINT(1),
+	smoke TINYINT(1)
+	);
+
