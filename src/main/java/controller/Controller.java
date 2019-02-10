@@ -80,19 +80,19 @@ public class Controller extends HttpServlet {
 
             HtmlTableCreator tableCreator = new HtmlTableCreator();
 
-            this.getServletContext().setAttribute("useful",
+            this.getServletContext().setAttribute("month_useful",
                     tableCreator.getMonthTable(new HashMap<Integer, Day>(month), "useful"));
-            this.getServletContext().setAttribute("work",
+            this.getServletContext().setAttribute("month_work",
                     tableCreator.getMonthTable(new HashMap<Integer, Day>(month), "work"));
-            this.getServletContext().setAttribute("study",
+            this.getServletContext().setAttribute("month_study",
                     tableCreator.getMonthTable(new HashMap<Integer, Day>(month), "study"));
-            this.getServletContext().setAttribute("learn_language",
+            this.getServletContext().setAttribute("month_learn_language",
                     tableCreator.getMonthTable(new HashMap<Integer, Day>(month), "learn_language"));
-            this.getServletContext().setAttribute("sport",
+            this.getServletContext().setAttribute("month_sport",
                     tableCreator.getMonthTable(new HashMap<Integer, Day>(month), "sport"));
-            this.getServletContext().setAttribute("alcohol",
+            this.getServletContext().setAttribute("month_alcohol",
                     tableCreator.getMonthTable(new HashMap<Integer, Day>(month), "alcohol"));
-            this.getServletContext().setAttribute("smoke",
+            this.getServletContext().setAttribute("month_smoke",
                     tableCreator.getMonthTable(new HashMap<Integer, Day>(month), "smoke"));
 
             response.sendRedirect("month.jsp");
