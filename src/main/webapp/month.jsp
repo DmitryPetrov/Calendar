@@ -58,23 +58,33 @@
 	
 	<div class="side_bar">
 	 <main>
-	 	<table>
-				<tr>
+	 	<table class="side_bar">
+				<tr class="side_bar">
 					<td class="side_bar">
 						MENU
 					</td>
 				</tr>
-				<tr>
+				<tr class="side_bar">
 					<td class="side_bar">
 						<a href="index.html">Change user</a>
 					</td>
 				</tr>
-				<tr>
+				<tr class="side_bar">
 					<td class="side_bar">
 						<a href="week.html">Set this week</a>
 					</td>
 				</tr>
-				<tr>
+				<tr class="side_bar">
+					<td class="side_bar">
+						<a href="month.jsp">Show this month</a>
+					</td>
+				</tr>
+				<tr class="side_bar">
+					<td class="side_bar">
+						<a href="year.jsp">Show this year</a>
+					</td>
+				</tr>
+				<tr class="side_bar">
 					<td class="side_bar">
 						<a href="info.html">Information</a>
 					</td>
