@@ -18,9 +18,28 @@ import model.*;
 public class ConnectorMySql implements DataBaseConnector{
 
     private static BasicDataSource dataSource;
+    
+    private static String driver;
+    private static String url;
+    private static String username;
+    private static String password;
 
     
     public ConnectorMySql() {
+        driver = "com.mysql.cj.jdbc.Driver";
+        url = "jdbc:mysql://localhost/mood_calendar?serverTimezone=Europe/Moscow&useSSL=false&";
+        username = "user";
+        password = "password";
+        
+        dataSource = ConnectorMySql.getDataSource();
+    }
+    
+    public ConnectorMySql(Map<String, String> dbProperties) {
+        driver = dbProperties.remove("driver");
+        url = dbProperties.remove("url");
+        username = dbProperties.remove("username");
+        password = dbProperties.remove("password");
+        
         dataSource = ConnectorMySql.getDataSource();
     }
     
@@ -28,11 +47,10 @@ public class ConnectorMySql implements DataBaseConnector{
     private static BasicDataSource getDataSource() {
         if (dataSource == null) {
             BasicDataSource ds = new BasicDataSource();
-            ds.setUrl("jdbc:mysql://localhost/mood_calendar?serverTimezone=Europe/Moscow&useSSL=false&");
-            ds.setUsername("user");
-            ds.setPassword("password");
- 
- 
+            ds.setUrl(url);
+            ds.setUsername(username);
+            ds.setPassword(password);
+
             ds.setMinIdle(5);
             ds.setMaxIdle(10);
             ds.setMaxOpenPreparedStatements(100);

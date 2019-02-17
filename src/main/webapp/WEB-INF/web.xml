@@ -19,9 +19,20 @@
 		<servlet-name>year</servlet-name>
 		<jsp-file>/year.jsp</jsp-file>
 	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>PropertiesReader</display-name>
+		<servlet-name>PropertiesReader</servlet-name>
+		<servlet-class>controller.PropertiesReader</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>year</servlet-name>
 		<url-pattern>/year</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>PropertiesReader</servlet-name>
+		<url-pattern>/PropertiesReader</url-pattern>
 	</servlet-mapping>
 	
 	

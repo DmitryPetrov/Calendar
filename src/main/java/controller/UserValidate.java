@@ -2,7 +2,13 @@
 package controller;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Properties;
+
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -41,7 +47,9 @@ public class UserValidate extends HttpServlet {
 
         User user = createUser(request, response);
 
-        DataBaseConnector connector = new ConnectorMySql();
+        initDataBaseConnector();
+        
+        DataBaseConnector connector = (DataBaseConnector) getServletContext().getAttribute("connector");
 
         try {
             if (connector.checkDataBaseUser(user)) {
@@ -78,6 +86,47 @@ public class UserValidate extends HttpServlet {
         }
         
         return user;
+    }
+    
+    private void initDataBaseConnector() {
+        Map<String, String> dbProperties = readDataBaseProperties();
+        
+        DataBaseConnector connector = new ConnectorMySql(dbProperties);
+        
+        ServletContext servletContext = getServletContext();
+        servletContext.setAttribute("connector", connector);
+    }
+    
+    private Map<String, String> readDataBaseProperties() {
+        ServletContext servletContext = getServletContext();
+        
+        String driver = null;
+        String url = null;
+        String username = null;
+        String password = null;
+        
+        try (InputStream input = servletContext
+                .getResourceAsStream("WEB-INF/properties/DBconfig.properties");) {
+
+            Properties property = new Properties();
+            property.load(input);
+
+            driver = property.getProperty("jdbc.mysql.driver");
+            url = property.getProperty("jdbc.mysql.url");
+            username = property.getProperty("jdbc.mysql.username");
+            password = property.getProperty("jdbc.mysql.password");
+        } catch (IOException e) {
+            System.out.println("\n" + "Create connection failed \n" + e);
+        } 
+
+        Map<String, String> dbProperties = new HashMap<String, String>();
+        
+        dbProperties.put("driver", driver);
+        dbProperties.put("url", url);
+        dbProperties.put("username", username);
+        dbProperties.put("password", password); 
+        
+        return dbProperties;
     }
 
     
