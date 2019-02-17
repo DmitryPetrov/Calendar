@@ -7,7 +7,7 @@ import java.util.Map;
 
 import model.Day;
 
-public class HtmlTableCreator {
+public class HtmlTableMonthCreator {
 
     public String getMonthTable(Map<Integer, Day> month,
             String dayAttribute) {

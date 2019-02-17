@@ -15,11 +15,11 @@ import org.junit.Test;
 import model.Day;
 import model.Mood;
 
-public class HtmlTableCreatorTest {
+public class HtmlTableMonthCreatorTest {
 
     @Test
     public void getMonthTable_EmptyMap_SkeletonHtmlTable() {
-        HtmlTableCreator creator = new HtmlTableCreator();
+        HtmlTableMonthCreator creator = new HtmlTableMonthCreator();
         String table = creator.getMonthTable(new HashMap<Integer, Day>(), "useful");
         
         boolean resultRegExrTest = regularExpressionsTest(table);
@@ -31,7 +31,7 @@ public class HtmlTableCreatorTest {
         Map<Integer, Day> month = new HashMap<Integer, Day>();
         month = fillMapFebruary2010(month);
         
-        HtmlTableCreator creator = new HtmlTableCreator();
+        HtmlTableMonthCreator creator = new HtmlTableMonthCreator();
         String table = creator.getMonthTable(month, "useful");
         
         boolean resultRegExrTest = regularExpressionsTest(table);
@@ -42,7 +42,7 @@ public class HtmlTableCreatorTest {
     
     @Test
     public void getMonthTable_NotFullMap_HtmlTable() {
-        HtmlTableCreator creator = new HtmlTableCreator();
+        HtmlTableMonthCreator creator = new HtmlTableMonthCreator();
         Map<Integer, Day> month = new HashMap<Integer, Day>();
         month = fillMapJanuar2022(month);
         String table = creator.getMonthTable(month, "useful");

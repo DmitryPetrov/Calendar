@@ -20,7 +20,7 @@ import dbconnector.DataBaseConnector;
 import exceptions.UserIsNotExistException;
 import model.Day;
 import model.User;
-import view.HtmlTableCreator;
+import view.HtmlTableMonthCreator;
 
 /**
  * Servlet implementation class Controller
@@ -74,7 +74,7 @@ public class Month extends HttpServlet {
 
         Map<Integer, Day> month = selectMonthFromDataBase(user);
 
-        HtmlTableCreator tableCreator = new HtmlTableCreator();
+        HtmlTableMonthCreator tableCreator = new HtmlTableMonthCreator();
 
         request.setAttribute("month_useful", tableCreator
                 .getMonthTable(new HashMap<Integer, Day>(month), "useful"));
