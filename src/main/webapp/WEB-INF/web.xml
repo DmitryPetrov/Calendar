@@ -26,6 +26,13 @@
 		<servlet-name>PropertiesReader</servlet-name>
 		<servlet-class>controller.PropertiesReader</servlet-class>
 	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>WeekPrep</display-name>
+		<servlet-name>WeekPrep</servlet-name>
+		<servlet-class>controller.WeekPrep</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>year</servlet-name>
 		<url-pattern>/year</url-pattern>
@@ -33,6 +40,10 @@
 	<servlet-mapping>
 		<servlet-name>PropertiesReader</servlet-name>
 		<url-pattern>/PropertiesReader</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>WeekPrep</servlet-name>
+		<url-pattern>/WeekPrep</url-pattern>
 	</servlet-mapping>
 	
 	
