@@ -61,6 +61,7 @@ public class Year extends HttpServlet {
         day.setDate(date);
 
         redirectToYear(connector, user, day, response);
+        response.sendRedirect("year.jsp");
     }
 
     
@@ -99,11 +100,6 @@ public class Year extends HttpServlet {
                             "alcohol"));
             this.getServletContext().setAttribute("year_smoke", tableCreator
                     .getYearTable(new HashMap<Calendar, Map<Integer, Day>>(year), "smoke"));
-
-            response.sendRedirect("/Calendar/MonthPrep.jsp");
-
-        } catch (IOException e) {
-            e.printStackTrace();
         } catch (SQLException | UserIsNotExistException e) {
             e.printStackTrace();
         }
