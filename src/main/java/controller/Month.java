@@ -59,6 +59,8 @@ public class Month extends HttpServlet {
         day.setDate(date);
 
         redirectToMonth(connector, user, day, response);
+        
+        response.sendRedirect("month.jsp");
     }
 
     /**
@@ -93,11 +95,6 @@ public class Month extends HttpServlet {
                     tableCreator.getMonthTable(new HashMap<Integer, Day>(month), "alcohol"));
             this.getServletContext().setAttribute("month_smoke",
                     tableCreator.getMonthTable(new HashMap<Integer, Day>(month), "smoke"));
-
-            response.sendRedirect("month.jsp");
-
-        } catch (IOException e) {
-            e.printStackTrace();
         } catch (SQLException | UserIsNotExistException e) {
             e.printStackTrace();
         }
