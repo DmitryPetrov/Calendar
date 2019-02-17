@@ -26,31 +26,31 @@
 	<label for="tab7">Smoke</label>
 
 	<section id="content1">
-		<p><% out.println((String) getServletContext().getAttribute("year_useful")); %></p>
+		<p><% out.println((String) request.getAttribute("year_useful")); %></p>
 	</section>
 
 	<section id="content2">
-		<p><% out.println((String) getServletContext().getAttribute("year_work")); %></p>
+		<p><% out.println((String) request.getAttribute("year_work")); %></p>
 	</section>
 
 	<section id="content3">
-		<p><% out.println((String) getServletContext().getAttribute("year_study")); %></p>
+		<p><% out.println((String) request.getAttribute("year_study")); %></p>
 	</section>
 
 	<section id="content4">
-		<p><% out.println((String) getServletContext().getAttribute("year_learn_language")); %></p>
+		<p><% out.println((String) request.getAttribute("year_learn_language")); %></p>
 	</section>
 	
 	<section id="content5">
-		<p><% out.println((String) getServletContext().getAttribute("year_sport")); %></p>
+		<p><% out.println((String) request.getAttribute("year_sport")); %></p>
 	</section>
 	
 	<section id="content6">
-		<p><% out.println((String) getServletContext().getAttribute("year_alcohol")); %></p>
+		<p><% out.println((String) request.getAttribute("year_alcohol")); %></p>
 	</section>
 	
 	<section id="content7">
-		<p><% out.println((String) getServletContext().getAttribute("year_smoke")); %></p>
+		<p><% out.println((String) request.getAttribute("year_smoke")); %></p>
 	</section>
 
 	</main>

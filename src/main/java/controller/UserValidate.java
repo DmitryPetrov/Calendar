@@ -66,7 +66,7 @@ public class UserValidate extends HttpServlet {
         session.setAttribute("user", user);
 
         //response.sendRedirect("/Calendar/YearPrep");
-        String page = "/Calendar/YearPrep";
+        String page = "/week.html";
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(page);
         dispatcher.forward(request,response);
     }

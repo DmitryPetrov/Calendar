@@ -65,7 +65,7 @@ public class Month extends HttpServlet {
         redirectToMonth(connector, user, day, response);
         
         //response.sendRedirect("month.jsp");
-        String page = "month.jsp";
+        String page = "/month.jsp";
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(page);
         dispatcher.forward(request,response);
     }
