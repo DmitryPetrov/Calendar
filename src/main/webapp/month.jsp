@@ -76,12 +76,12 @@
 				</tr>
 				<tr class="side_bar">
 					<td class="side_bar">
-						<a href="month.jsp">Show this month</a>
+						<a href="MonthPrep">Show this month</a>
 					</td>
 				</tr>
 				<tr class="side_bar">
 					<td class="side_bar">
-						<a href="yearPrep">Show this year</a>
+						<a href="YearPrep">Show this year</a>
 					</td>
 				</tr>
 				<tr class="side_bar">
