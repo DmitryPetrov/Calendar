@@ -1,3 +1,4 @@
+
 package controller;
 
 import java.io.IOException;
@@ -23,8 +24,8 @@ import model.User;
  */
 @WebServlet("/AddDay")
 public class AddDay extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-       
+    private static final long serialVersionUID = 1L;
+
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -33,31 +34,47 @@ public class AddDay extends HttpServlet {
         // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-	    System.out.println("/AddDay");
-	    
-	    HttpSession session = request.getSession();
+    /**
+     * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+     *      response)
+     */
+    protected void doGet(HttpServletRequest request,
+            HttpServletResponse response) throws ServletException, IOException {
 
+        System.out.println("/AddDay");
+
+        HttpSession session = request.getSession();
         User user = (User) session.getAttribute("user");
-        
-        if(user == null) {
-            //response.sendRedirect("index.html");
-            String page = "index.html";
-            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(page);
-            dispatcher.forward(request,response);
-            return;
+
+        if (user == null) {
+            String page = "/index.html";
+            RequestDispatcher dispatcher =
+                    getServletContext().getRequestDispatcher(page);
+            dispatcher.forward(request, response);
+        } else {
+            insertDayIntoDataBase(request, user);
         }
 
-        DataBaseConnector connector = (DataBaseConnector) getServletContext().getAttribute("connector");
-               
-        Day day = readDayFronRequest(request);
-      
+    }
+
+    /**
+     * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+     *      response)
+     */
+    protected void doPost(HttpServletRequest request,
+            HttpServletResponse response) throws ServletException, IOException {
+        doGet(request, response);
+    }
+
+    private void insertDayIntoDataBase(HttpServletRequest request, User user) {
+
+        DataBaseConnector connector = (DataBaseConnector) getServletContext()
+                .getAttribute("connector");
+
+        Day day = readDayFromRequest(request);
+
         try {
-            if(connector.checkDataBaseDay(user, day)) {
+            if (connector.checkDataBaseDay(user, day)) {
                 connector.updateDay(user, day);
             } else {
                 connector.insertDay(user, day);
@@ -65,25 +82,11 @@ public class AddDay extends HttpServlet {
         } catch (SQLException | UserIsNotExistException e) {
             e.printStackTrace();
         }
-        
-        //response.sendRedirect("/Calendar/MonthPrep");
-        String page = "/Calendar/MonthPrep";
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(page);
-        dispatcher.forward(request,response);
-	}
+    }
 
-	
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
-	}
-  
-    private Day readDayFronRequest(HttpServletRequest request) {
+    private Day readDayFromRequest(HttpServletRequest request) {
         Day day = new Day();
-        
+
         Calendar date = readDayFromRequest(request.getParameter("date"));
 
         day.setDate(date);
@@ -110,10 +113,10 @@ public class AddDay extends HttpServlet {
         if (request.getParameter("smoke") != null) {
             day.setSmoke(true);
         }
-        
+
         return day;
     }
-    
+
     private Calendar readDayFromRequest(String string) {
         String[] date = string.split("-");
 
@@ -123,5 +126,5 @@ public class AddDay extends HttpServlet {
 
         return new GregorianCalendar(year, month, day);
     }
-	
+
 }
