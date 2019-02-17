@@ -46,7 +46,7 @@ public class HtmlTableYearCreator {
         
         for (int i = 1; i <= dayInMonth; i++) {
             if (month.containsKey(i)) {
-                day = month.remove(i);
+                day = month.get(i);
 
                 if (firstDay == true) {
 
