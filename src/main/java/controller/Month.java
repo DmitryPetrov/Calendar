@@ -44,30 +44,20 @@ public class Month extends HttpServlet {
     protected void doGet(HttpServletRequest request,
             HttpServletResponse response) throws ServletException, IOException {
         System.out.println("/Month");
-        HttpSession session = request.getSession();
 
+        HttpSession session = request.getSession();
         User user = (User) session.getAttribute("user");
 
+        String page = "/month.jsp";
         if (user == null) {
-            //response.sendRedirect("index.html");
-            String page = "index.html";
-            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(page);
-            dispatcher.forward(request,response);
-            return;
+            page = "/index.html";
+        } else {
+            createHtmlTables(user, request);
         }
 
-        DataBaseConnector connector = (DataBaseConnector) getServletContext().getAttribute("connector");
-
-        Calendar date = new GregorianCalendar();
-        Day day = new Day();
-        day.setDate(date);
-
-        redirectToMonth(connector, user, day, response);
-        
-        //response.sendRedirect("month.jsp");
-        String page = "/month.jsp";
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(page);
-        dispatcher.forward(request,response);
+        RequestDispatcher dispatcher =
+                getServletContext().getRequestDispatcher(page);
+        dispatcher.forward(request, response);
     }
 
     /**
@@ -80,31 +70,52 @@ public class Month extends HttpServlet {
         doGet(request, response);
     }
 
-    private void redirectToMonth(DataBaseConnector connector, User user,
-            Day day, HttpServletResponse response) {
+    private void createHtmlTables(User user, HttpServletRequest request) {
+
+        Map<Integer, Day> month = selectMonthFromDataBase(user);
+
+        HtmlTableCreator tableCreator = new HtmlTableCreator();
+
+        request.setAttribute("month_useful", tableCreator
+                .getMonthTable(new HashMap<Integer, Day>(month), "useful"));
+        
+        request.setAttribute("month_work", tableCreator
+                .getMonthTable(new HashMap<Integer, Day>(month), "work"));
+        
+        request.setAttribute("month_study", tableCreator
+                .getMonthTable(new HashMap<Integer, Day>(month), "study"));
+        
+        request.setAttribute("month_learn_language", tableCreator.getMonthTable(
+                new HashMap<Integer, Day>(month), "learn_language"));
+        
+        request.setAttribute("month_sport", tableCreator
+                .getMonthTable(new HashMap<Integer, Day>(month), "sport"));
+        
+        request.setAttribute("month_alcohol", tableCreator
+                .getMonthTable(new HashMap<Integer, Day>(month), "alcohol"));
+        
+        request.setAttribute("month_smoke", tableCreator
+                .getMonthTable(new HashMap<Integer, Day>(month), "smoke"));
+
+    }
+
+    private Map<Integer, Day> selectMonthFromDataBase(User user) {
+        DataBaseConnector connector = (DataBaseConnector) getServletContext()
+                .getAttribute("connector");
+
+        Calendar date = new GregorianCalendar();
+        Day day = new Day();
+        day.setDate(date);
+
+        Map<Integer, Day> month;
         try {
-            Map<Integer, Day> month =
-                    connector.selectMonth(user, day.getDate());
-
-            HtmlTableCreator tableCreator = new HtmlTableCreator();
-
-            this.getServletContext().setAttribute("month_useful",
-                    tableCreator.getMonthTable(new HashMap<Integer, Day>(month), "useful"));
-            this.getServletContext().setAttribute("month_work",
-                    tableCreator.getMonthTable(new HashMap<Integer, Day>(month), "work"));
-            this.getServletContext().setAttribute("month_study",
-                    tableCreator.getMonthTable(new HashMap<Integer, Day>(month), "study"));
-            this.getServletContext().setAttribute("month_learn_language",
-                    tableCreator.getMonthTable(new HashMap<Integer, Day>(month), "learn_language"));
-            this.getServletContext().setAttribute("month_sport",
-                    tableCreator.getMonthTable(new HashMap<Integer, Day>(month), "sport"));
-            this.getServletContext().setAttribute("month_alcohol",
-                    tableCreator.getMonthTable(new HashMap<Integer, Day>(month), "alcohol"));
-            this.getServletContext().setAttribute("month_smoke",
-                    tableCreator.getMonthTable(new HashMap<Integer, Day>(month), "smoke"));
+            month = connector.selectMonth(user, day.getDate());
         } catch (SQLException | UserIsNotExistException e) {
             e.printStackTrace();
+            return null;
         }
+
+        return month;
     }
 
 }
