@@ -9,14 +9,14 @@
  	<script src="scrips/week.js"></script>
  	<script>
 		var date = new Date(); 
-		
-		var sunday = getSunday();
+				
 		var monday = getMonday();
 		var tuesday = getTuesday();
 		var wednesday = getWednesday();
 		var thursday = getThursday();
 		var friday = getFriday();
 		var saturday = getSaturday();
+		var sunday = getSunday();
 		
 		function getWeekDay(date) {
 		    var days = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
@@ -28,34 +28,51 @@
 		    		'August', 'September', 'October', 'November', 'December'];
 		    return months[date.getMonth()];
 		}
-		
-		function getSunday() {
-			return new Date((1900 + date.getYear()), date.getMonth(), (date.getDate() - date.getDay() + 7));
-		};
 
 		function getMonday() {
-			return new Date((1900 + date.getYear()), date.getMonth(), (date.getDate() - date.getDay() + 1));
+			dayOfWeek = correctionToRussianWeek();
+			return new Date((1900 + date.getYear()), date.getMonth(), (dayOfWeek + 1));
 		};
 
 		function getTuesday() {
-			return new Date((1900 + date.getYear()), date.getMonth(), (date.getDate() - date.getDay() + 2))
+			dayOfWeek = correctionToRussianWeek();
+			return new Date((1900 + date.getYear()), date.getMonth(), (dayOfWeek + 2))
 		};
 
 		function getWednesday() {
-			return new Date((1900 + date.getYear()), date.getMonth(), (date.getDate() - date.getDay() + 3))
+			dayOfWeek = correctionToRussianWeek();
+			return new Date((1900 + date.getYear()), date.getMonth(), (dayOfWeek + 3))
 		};
 
 		function getThursday() {
-			return new Date((1900 + date.getYear()), date.getMonth(), (date.getDate() - date.getDay() + 4))
+			dayOfWeek = correctionToRussianWeek();
+			return new Date((1900 + date.getYear()), date.getMonth(), (dayOfWeek + 4))
 		};
 
 		function getFriday() {
-			return new Date((1900 + date.getYear()), date.getMonth(), (date.getDate() - date.getDay() + 5))
+			dayOfWeek = correctionToRussianWeek();
+			return new Date((1900 + date.getYear()), date.getMonth(), (dayOfWeek + 5))
 		};
 
 		function getSaturday() {
-			return new Date((1900 + date.getYear()), date.getMonth(), (date.getDate() - date.getDay() + 6))
+			dayOfWeek = correctionToRussianWeek();
+			return new Date((1900 + date.getYear()), date.getMonth(), (dayOfWeek + 6))
 		};
+		
+		function getSunday() {
+			dayOfWeek = correctionToRussianWeek();
+			return new Date((1900 + date.getYear()), date.getMonth(), (dayOfWeek + 7));
+		};
+		
+		function correctionToRussianWeek() {
+			if (date.getDay() == 0) {
+				dayOfWeek = (date.getDate() - date.getDay() - 7);
+			} else {
+				dayOfWeek = (date.getDate() - date.getDay());
+			}
+			return dayOfWeek;
+		}
+		
  	</script>
 </head>
 
@@ -78,56 +95,59 @@
 				    if (getWeekDay(date) === 'monday') {
 				    	 document.write('<strong>▼</strong><br>');
 				    }
+				    document.write('ПН (' + monday.getDate() + ')');
 			    </script>
-			    ПН
 			</td>
 			<td align="center" class="table_hat">
 				<script>    
 				    if (getWeekDay(date) === 'tuesday') {
 				    	 document.write('<strong>▼</strong><br>');
 				    }
+				    document.write('ВТ (' + tuesday.getDate() + ')');
 			    </script>
-			    ВТ
 			</td>
 			<td align="center" class="table_hat">
 				<script>    
 				    if (getWeekDay(date) === 'wednesday') {
 				    	 document.write('<strong>▼</strong><br>');
 				    }
+				    document.write('СР (' + wednesday.getDate() + ')');
 			    </script>
-			    СР
 			</td>
 			<td align="center" class="table_hat">
 				<script>    
 				    if (getWeekDay(date) === 'thursday') {
 				    	 document.write('<strong>▼</strong><br>');
-				    }					
+				    }				
+				    document.write('ЧТ (' + thursday.getDate() + ')');
 			    </script>
-			    ЧТ
 			</td>
 			<td align="center" class="table_hat">
 				<script>    
 				    if (getWeekDay(date) === 'friday') {
 				    	 document.write('<strong>▼</strong><br>');
 				    }
+				    document.write('ПТ (' + friday.getDate() + ')');
 			    </script>
-			    ПТ
+			    
 			</td>
 			<td align="center" class="table_hat">
 				<script>    
 				    if (getWeekDay(date) === 'saturday') {
 				    	 document.write('<strong>▼</strong><br>');
 				    }
+				    document.write('СБ (' + saturday.getDate() + ')');
 			    </script>
-			    СБ
+			    
 			</td>
 			<td align="center" class="table_hat">
 				<script>    
 				    if (getWeekDay(date) === 'sunday') {
 				    	 document.write('<strong>▼</strong><br>');
 				    }
+				    document.write('ВС (' + sunday.getDate() + ')');
 			    </script>
-			    ВС
+			    
 			</td>
 		</tr>
 		<tr id='second_font'>
@@ -434,10 +454,10 @@
 					dataType: 'html',
 					data: formNm.serialize(),//собираем данные с формы
 					success: function(response) { //обработать результат 
-						//$(formNm).find("div").html("data has been sent"); //по ссылке с формой находим тег div и вставляем туда ответ
-						document.getElementByClass('result').onclick = function(){
-							alert('data has been sent');
-							}
+						$(formNm).find("div").html("Ok"); //по ссылке с формой находим тег div и вставляем туда ответ
+						//document.getElementByClass('result').onclick = function(){
+							//html('data sent');
+							//}
 					}
 				});
 				return false;

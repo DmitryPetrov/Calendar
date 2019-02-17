@@ -95,3 +95,8 @@ td.side_bar {
 	text-align: left;
 	font-size: 17px;
 }
+
+#result {
+	height: 50px;
+}
+
