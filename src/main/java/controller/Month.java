@@ -52,8 +52,7 @@ public class Month extends HttpServlet {
             return;
         }
 
-        DataBaseConnector connector =
-                (DataBaseConnector) session.getAttribute("connector");
+        DataBaseConnector connector = (DataBaseConnector) getServletContext().getAttribute("connector");
 
         Calendar date = new GregorianCalendar();
         Day day = new Day();

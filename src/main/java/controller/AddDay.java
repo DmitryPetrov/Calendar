@@ -48,7 +48,7 @@ public class AddDay extends HttpServlet {
             return;
         }
 
-        DataBaseConnector connector = (DataBaseConnector) session.getAttribute("connector");
+        DataBaseConnector connector = (DataBaseConnector) getServletContext().getAttribute("connector");
                
         Day day = readDayFronRequest(request);
       

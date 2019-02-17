@@ -8,6 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -63,7 +64,6 @@ public class UserValidate extends HttpServlet {
 
         HttpSession session = request.getSession();
         session.setAttribute("user", user);
-        session.setAttribute("connector", connector);
 
         response.sendRedirect("/Calendar/YearPrep");
     }
