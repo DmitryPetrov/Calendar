@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -44,7 +45,10 @@ public class AddDay extends HttpServlet {
         User user = (User) session.getAttribute("user");
         
         if(user == null) {
-            response.sendRedirect("index.html");
+            //response.sendRedirect("index.html");
+            String page = "index.html";
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(page);
+            dispatcher.forward(request,response);
             return;
         }
 
@@ -62,7 +66,10 @@ public class AddDay extends HttpServlet {
             e.printStackTrace();
         }
         
-        response.sendRedirect("/Calendar/MonthPrep");
+        //response.sendRedirect("/Calendar/MonthPrep");
+        String page = "/Calendar/MonthPrep";
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(page);
+        dispatcher.forward(request,response);
 	}
 
 	

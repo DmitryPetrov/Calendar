@@ -65,7 +65,10 @@ public class UserValidate extends HttpServlet {
         HttpSession session = request.getSession();
         session.setAttribute("user", user);
 
-        response.sendRedirect("/Calendar/YearPrep");
+        //response.sendRedirect("/Calendar/YearPrep");
+        String page = "/Calendar/YearPrep";
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(page);
+        dispatcher.forward(request,response);
     }
     
     private User createUser(HttpServletRequest request,
