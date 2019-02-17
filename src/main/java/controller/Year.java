@@ -8,6 +8,7 @@ import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -50,7 +51,10 @@ public class Year extends HttpServlet {
         User user = (User) session.getAttribute("user");
 
         if (user == null) {
-            response.sendRedirect("index.html");
+            //response.sendRedirect("index.html");
+            String page = "index.html";
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(page);
+            dispatcher.forward(request,response);
             return;
         }
 
@@ -61,7 +65,10 @@ public class Year extends HttpServlet {
         day.setDate(date);
 
         redirectToYear(connector, user, day, response);
-        response.sendRedirect("year.jsp");
+        //response.sendRedirect("year.jsp");
+        String page = "year.jsp";
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(page);
+        dispatcher.forward(request,response);
     }
 
     
