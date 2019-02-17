@@ -28,4 +28,7 @@ public interface DataBaseConnector {
 
     public Map<Integer, Day> selectMonth(User user, Calendar month)
             throws UserIsNotExistException, SQLException;
+    
+    public Map<Calendar, Map<Integer, Day>> selectYear(User user, Calendar year)
+            throws UserIsNotExistException, SQLException;
 }

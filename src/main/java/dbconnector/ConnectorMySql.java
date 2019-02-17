@@ -11,6 +11,7 @@ import java.util.Map;
 
 import org.apache.commons.dbcp2.BasicDataSource;
 
+import exceptions.UserIsNotExistException;
 import model.*;
 
 
@@ -298,5 +299,20 @@ public class ConnectorMySql implements DataBaseConnector{
         int day = Integer.valueOf(date[2]);
  
         return new GregorianCalendar(year, month, day);
+    }
+
+
+    @Override
+    public Map<Calendar, Map<Integer, Day>> selectYear(User user, Calendar year)
+            throws UserIsNotExistException, SQLException {
+        
+        Map<Calendar, Map<Integer, Day>> yearMap = new HashMap<Calendar, Map<Integer, Day>>();
+        for(int i = 0; i < 12; i++) {
+            Calendar month = new GregorianCalendar(year.get(Calendar.YEAR), i, 1);
+            Map<Integer, Day> monthMap = selectMonth(user, month);
+            yearMap.put(month, monthMap);
+        }
+        
+        return yearMap;
     }
 }

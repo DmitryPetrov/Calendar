@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Calendar month</title>
-<link href="css/month.css" rel="stylesheet">
+<link href="css/year.css" rel="stylesheet">
 </head>
 <body>
 	<div id="main">
@@ -26,31 +26,31 @@
 	<label for="tab7">Smoke</label>
 
 	<section id="content1">
-		<p><% out.println((String) getServletContext().getAttribute("useful")); %></p>
+		<p><% out.println((String) getServletContext().getAttribute("year_useful")); %></p>
 	</section>
 
 	<section id="content2">
-		<p><% out.println((String) getServletContext().getAttribute("work")); %></p>
+		<p><% out.println((String) getServletContext().getAttribute("year_work")); %></p>
 	</section>
 
 	<section id="content3">
-		<p><% out.println((String) getServletContext().getAttribute("study")); %></p>
+		<p><% out.println((String) getServletContext().getAttribute("year_study")); %></p>
 	</section>
 
 	<section id="content4">
-		<p><% out.println((String) getServletContext().getAttribute("learn_language")); %></p>
+		<p><% out.println((String) getServletContext().getAttribute("year_learn_language")); %></p>
 	</section>
 	
 	<section id="content5">
-		<p><% out.println((String) getServletContext().getAttribute("sport")); %></p>
+		<p><% out.println((String) getServletContext().getAttribute("year_sport")); %></p>
 	</section>
 	
 	<section id="content6">
-		<p><% out.println((String) getServletContext().getAttribute("alcohol")); %></p>
+		<p><% out.println((String) getServletContext().getAttribute("year_alcohol")); %></p>
 	</section>
 	
 	<section id="content7">
-		<p><% out.println((String) getServletContext().getAttribute("smoke")); %></p>
+		<p><% out.println((String) getServletContext().getAttribute("year_smoke")); %></p>
 	</section>
 
 	</main>

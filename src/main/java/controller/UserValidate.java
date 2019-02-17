@@ -57,7 +57,7 @@ public class UserValidate extends HttpServlet {
         session.setAttribute("user", user);
         session.setAttribute("connector", connector);
 
-        response.sendRedirect("/Calendar/Controller");
+        response.sendRedirect("/Calendar/YearPrep");
     }
     
     private User createUser(HttpServletRequest request,

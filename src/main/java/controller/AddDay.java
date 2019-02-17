@@ -62,7 +62,7 @@ public class AddDay extends HttpServlet {
             e.printStackTrace();
         }
         
-        response.sendRedirect("/Calendar/Controller");
+        response.sendRedirect("/Calendar/MonthPrep");
 	}
 
 	

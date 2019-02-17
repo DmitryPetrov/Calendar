@@ -19,32 +19,34 @@ import dbconnector.DataBaseConnector;
 import exceptions.UserIsNotExistException;
 import model.Day;
 import model.User;
-import view.HtmlTableCreator;
+import view.HtmlTableYearCreator;
 
 /**
- * Servlet implementation class Controller
+ * Servlet implementation class Year
  */
-@WebServlet("/Controller")
-public class Controller extends HttpServlet {
+@WebServlet("/YearPrep")
+public class Year extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
+    
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Controller() {
+    public Year() {
         super();
         // TODO Auto-generated constructor stub
     }
 
+    
     /**
      * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
      *      response)
      */
     protected void doGet(HttpServletRequest request,
             HttpServletResponse response) throws ServletException, IOException {
-        System.out.println("/Controller");
+        System.out.println("/Year");
+       
         HttpSession session = request.getSession();
-
         User user = (User) session.getAttribute("user");
 
         if (user == null) {
@@ -59,9 +61,10 @@ public class Controller extends HttpServlet {
         Day day = new Day();
         day.setDate(date);
 
-        redirectToMonth(connector, user, day, response);
+        redirectToYear(connector, user, day, response);
     }
 
+    
     /**
      * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
      *      response)
@@ -72,30 +75,33 @@ public class Controller extends HttpServlet {
         doGet(request, response);
     }
 
-    private void redirectToMonth(DataBaseConnector connector, User user,
+    
+    private void redirectToYear(DataBaseConnector connector, User user,
             Day day, HttpServletResponse response) {
         try {
-            Map<Integer, Day> month =
-                    connector.selectMonth(user, day.getDate());
+            Map<Calendar, Map<Integer, Day>> year =
+                    connector.selectYear(user, day.getDate());
 
-            HtmlTableCreator tableCreator = new HtmlTableCreator();
+            HtmlTableYearCreator tableCreator = new HtmlTableYearCreator();
 
-            this.getServletContext().setAttribute("month_useful",
-                    tableCreator.getMonthTable(new HashMap<Integer, Day>(month), "useful"));
-            this.getServletContext().setAttribute("month_work",
-                    tableCreator.getMonthTable(new HashMap<Integer, Day>(month), "work"));
-            this.getServletContext().setAttribute("month_study",
-                    tableCreator.getMonthTable(new HashMap<Integer, Day>(month), "study"));
-            this.getServletContext().setAttribute("month_learn_language",
-                    tableCreator.getMonthTable(new HashMap<Integer, Day>(month), "learn_language"));
-            this.getServletContext().setAttribute("month_sport",
-                    tableCreator.getMonthTable(new HashMap<Integer, Day>(month), "sport"));
-            this.getServletContext().setAttribute("month_alcohol",
-                    tableCreator.getMonthTable(new HashMap<Integer, Day>(month), "alcohol"));
-            this.getServletContext().setAttribute("month_smoke",
-                    tableCreator.getMonthTable(new HashMap<Integer, Day>(month), "smoke"));
+            this.getServletContext().setAttribute("year_useful", tableCreator
+                    .getYearTable(new HashMap<Calendar, Map<Integer, Day>>(year), "useful"));
+            this.getServletContext().setAttribute("year_work", tableCreator
+                    .getYearTable(new HashMap<Calendar, Map<Integer, Day>>(year), "work"));
+            this.getServletContext().setAttribute("year_study", tableCreator
+                    .getYearTable(new HashMap<Calendar, Map<Integer, Day>>(year), "study"));
+            this.getServletContext().setAttribute("year_learn_language",
+                    tableCreator.getYearTable(new HashMap<Calendar, Map<Integer, Day>>(year),
+                            "learn_language"));
+            this.getServletContext().setAttribute("year_sport", tableCreator
+                    .getYearTable(new HashMap<Calendar, Map<Integer, Day>>(year), "sport"));
+            this.getServletContext().setAttribute("year_alcohol",
+                    tableCreator.getYearTable(new HashMap<Calendar, Map<Integer, Day>>(year),
+                            "alcohol"));
+            this.getServletContext().setAttribute("year_smoke", tableCreator
+                    .getYearTable(new HashMap<Calendar, Map<Integer, Day>>(year), "smoke"));
 
-            response.sendRedirect("month.jsp");
+            response.sendRedirect("/Calendar/MonthPrep.jsp");
 
         } catch (IOException e) {
             e.printStackTrace();

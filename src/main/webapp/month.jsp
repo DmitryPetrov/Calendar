@@ -81,7 +81,7 @@
 				</tr>
 				<tr class="side_bar">
 					<td class="side_bar">
-						<a href="year.jsp">Show this year</a>
+						<a href="yearPrep">Show this year</a>
 					</td>
 				</tr>
 				<tr class="side_bar">
