@@ -107,40 +107,40 @@ public class HtmlTableMonthCreatorTest {
     private String getFilledTableFebruary2010() {
         String table = "<table>" + 
                 "\n<tr>" + 
-                "\n\t<td class=\"good\" title=\"У вас было хорошее настроение\">1&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class=\"fa fa-list-ol fa-lg\"></i></td>" + 
-                "\n\t<td class=\"good\" title=\"У вас было хорошее настроение\">2&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class=\"fa fa-list-ol fa-lg\"></i></td>" + 
-                "\n\t<td class=\"good\" title=\"У вас было хорошее настроение\">3&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class=\"fa fa-list-ol fa-lg\"></i></td>" + 
-                "\n\t<td class=\"good\" title=\"У вас было хорошее настроение\">4&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class=\"fa fa-list-ol fa-lg\"></i></td>" + 
-                "\n\t<td class=\"good\" title=\"У вас было хорошее настроение\">5&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class=\"fa fa-list-ol fa-lg\"></i></td>" + 
-                "\n\t<td class=\"good\" title=\"У вас было хорошее настроение\">6&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class=\"fa fa-list-ol fa-lg\"></i></td>" + 
-                "\n\t<td class=\"good\" title=\"У вас было хорошее настроение\">7&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class=\"fa fa-list-ol fa-lg\"></i></td>" + 
+                "\n\t<td class=\"good\" title=\"У вас было хорошее настроение\">1&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class=\"fa fa-list-ol fa-lg\" title=\"Этот день вы провели с пользой\"></i></td>" + 
+                "\n\t<td class=\"good\" title=\"У вас было хорошее настроение\">2&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class=\"fa fa-list-ol fa-lg\" title=\"Этот день вы провели с пользой\"></i></td>" + 
+                "\n\t<td class=\"good\" title=\"У вас было хорошее настроение\">3&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class=\"fa fa-list-ol fa-lg\" title=\"Этот день вы провели с пользой\"></i></td>" + 
+                "\n\t<td class=\"good\" title=\"У вас было хорошее настроение\">4&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class=\"fa fa-list-ol fa-lg\" title=\"Этот день вы провели с пользой\"></i></td>" + 
+                "\n\t<td class=\"good\" title=\"У вас было хорошее настроение\">5&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class=\"fa fa-list-ol fa-lg\" title=\"Этот день вы провели с пользой\"></i></td>" + 
+                "\n\t<td class=\"good\" title=\"У вас было хорошее настроение\">6&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class=\"fa fa-list-ol fa-lg\" title=\"Этот день вы провели с пользой\"></i></td>" + 
+                "\n\t<td class=\"good\" title=\"У вас было хорошее настроение\">7&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class=\"fa fa-list-ol fa-lg\" title=\"Этот день вы провели с пользой\"></i></td>" + 
                 "\n</tr>" + 
                 "\n<tr>" + 
-                "\n\t<td class=\"good\" title=\"У вас было хорошее настроение\">8&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class=\"fa fa-list-ol fa-lg\"></i></td>" + 
-                "\n\t<td class=\"good\" title=\"У вас было хорошее настроение\">9&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class=\"fa fa-list-ol fa-lg\"></i></td>" + 
-                "\n\t<td class=\"good\" title=\"У вас было хорошее настроение\">10&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class=\"fa fa-list-ol fa-lg\"></i></td>" + 
-                "\n\t<td class=\"good\" title=\"У вас было хорошее настроение\">11&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class=\"fa fa-list-ol fa-lg\"></i></td>" + 
-                "\n\t<td class=\"good\" title=\"У вас было хорошее настроение\">12&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class=\"fa fa-list-ol fa-lg\"></i></td>" + 
-                "\n\t<td class=\"good\" title=\"У вас было хорошее настроение\">13&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class=\"fa fa-list-ol fa-lg\"></i></td>" + 
-                "\n\t<td class=\"good\" title=\"У вас было хорошее настроение\">14&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class=\"fa fa-list-ol fa-lg\"></i></td>" + 
+                "\n\t<td class=\"good\" title=\"У вас было хорошее настроение\">8&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class=\"fa fa-list-ol fa-lg\" title=\"Этот день вы провели с пользой\"></i></td>" + 
+                "\n\t<td class=\"good\" title=\"У вас было хорошее настроение\">9&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class=\"fa fa-list-ol fa-lg\" title=\"Этот день вы провели с пользой\"></i></td>" + 
+                "\n\t<td class=\"good\" title=\"У вас было хорошее настроение\">10&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class=\"fa fa-list-ol fa-lg\" title=\"Этот день вы провели с пользой\"></i></td>" + 
+                "\n\t<td class=\"good\" title=\"У вас было хорошее настроение\">11&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class=\"fa fa-list-ol fa-lg\" title=\"Этот день вы провели с пользой\"></i></td>" + 
+                "\n\t<td class=\"good\" title=\"У вас было хорошее настроение\">12&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class=\"fa fa-list-ol fa-lg\" title=\"Этот день вы провели с пользой\"></i></td>" + 
+                "\n\t<td class=\"good\" title=\"У вас было хорошее настроение\">13&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class=\"fa fa-list-ol fa-lg\" title=\"Этот день вы провели с пользой\"></i></td>" + 
+                "\n\t<td class=\"good\" title=\"У вас было хорошее настроение\">14&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class=\"fa fa-list-ol fa-lg\" title=\"Этот день вы провели с пользой\"></i></td>" + 
                 "\n</tr>" + 
                 "\n<tr>" + 
-                "\n\t<td class=\"good\" title=\"У вас было хорошее настроение\">15&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class=\"fa fa-list-ol fa-lg\"></i></td>" + 
-                "\n\t<td class=\"good\" title=\"У вас было хорошее настроение\">16&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class=\"fa fa-list-ol fa-lg\"></i></td>" + 
-                "\n\t<td class=\"good\" title=\"У вас было хорошее настроение\">17&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class=\"fa fa-list-ol fa-lg\"></i></td>" + 
-                "\n\t<td class=\"good\" title=\"У вас было хорошее настроение\">18&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class=\"fa fa-list-ol fa-lg\"></i></td>" + 
-                "\n\t<td class=\"good\" title=\"У вас было хорошее настроение\">19&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class=\"fa fa-list-ol fa-lg\"></i></td>" + 
-                "\n\t<td class=\"good\" title=\"У вас было хорошее настроение\">20&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class=\"fa fa-list-ol fa-lg\"></i></td>" + 
-                "\n\t<td class=\"good\" title=\"У вас было хорошее настроение\">21&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class=\"fa fa-list-ol fa-lg\"></i></td>" + 
+                "\n\t<td class=\"good\" title=\"У вас было хорошее настроение\">15&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class=\"fa fa-list-ol fa-lg\" title=\"Этот день вы провели с пользой\"></i></td>" + 
+                "\n\t<td class=\"good\" title=\"У вас было хорошее настроение\">16&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class=\"fa fa-list-ol fa-lg\" title=\"Этот день вы провели с пользой\"></i></td>" + 
+                "\n\t<td class=\"good\" title=\"У вас было хорошее настроение\">17&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class=\"fa fa-list-ol fa-lg\" title=\"Этот день вы провели с пользой\"></i></td>" + 
+                "\n\t<td class=\"good\" title=\"У вас было хорошее настроение\">18&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class=\"fa fa-list-ol fa-lg\" title=\"Этот день вы провели с пользой\"></i></td>" + 
+                "\n\t<td class=\"good\" title=\"У вас было хорошее настроение\">19&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class=\"fa fa-list-ol fa-lg\" title=\"Этот день вы провели с пользой\"></i></td>" + 
+                "\n\t<td class=\"good\" title=\"У вас было хорошее настроение\">20&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class=\"fa fa-list-ol fa-lg\" title=\"Этот день вы провели с пользой\"></i></td>" + 
+                "\n\t<td class=\"good\" title=\"У вас было хорошее настроение\">21&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class=\"fa fa-list-ol fa-lg\" title=\"Этот день вы провели с пользой\"></i></td>" + 
                 "\n</tr>" + 
                 "\n<tr>" + 
-                "\n\t<td class=\"good\" title=\"У вас было хорошее настроение\">22&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class=\"fa fa-list-ol fa-lg\"></i></td>" + 
-                "\n\t<td class=\"good\" title=\"У вас было хорошее настроение\">23&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class=\"fa fa-list-ol fa-lg\"></i></td>" + 
-                "\n\t<td class=\"good\" title=\"У вас было хорошее настроение\">24&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class=\"fa fa-list-ol fa-lg\"></i></td>" + 
-                "\n\t<td class=\"good\" title=\"У вас было хорошее настроение\">25&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class=\"fa fa-list-ol fa-lg\"></i></td>" + 
-                "\n\t<td class=\"good\" title=\"У вас было хорошее настроение\">26&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class=\"fa fa-list-ol fa-lg\"></i></td>" + 
-                "\n\t<td class=\"good\" title=\"У вас было хорошее настроение\">27&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class=\"fa fa-list-ol fa-lg\"></i></td>" + 
-                "\n\t<td class=\"good\" title=\"У вас было хорошее настроение\">28&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class=\"fa fa-list-ol fa-lg\"></i></td>" + 
+                "\n\t<td class=\"good\" title=\"У вас было хорошее настроение\">22&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class=\"fa fa-list-ol fa-lg\" title=\"Этот день вы провели с пользой\"></i></td>" + 
+                "\n\t<td class=\"good\" title=\"У вас было хорошее настроение\">23&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class=\"fa fa-list-ol fa-lg\" title=\"Этот день вы провели с пользой\"></i></td>" + 
+                "\n\t<td class=\"good\" title=\"У вас было хорошее настроение\">24&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class=\"fa fa-list-ol fa-lg\" title=\"Этот день вы провели с пользой\"></i></td>" + 
+                "\n\t<td class=\"good\" title=\"У вас было хорошее настроение\">25&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class=\"fa fa-list-ol fa-lg\" title=\"Этот день вы провели с пользой\"></i></td>" + 
+                "\n\t<td class=\"good\" title=\"У вас было хорошее настроение\">26&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class=\"fa fa-list-ol fa-lg\" title=\"Этот день вы провели с пользой\"></i></td>" + 
+                "\n\t<td class=\"good\" title=\"У вас было хорошее настроение\">27&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class=\"fa fa-list-ol fa-lg\" title=\"Этот день вы провели с пользой\"></i></td>" + 
+                "\n\t<td class=\"good\" title=\"У вас было хорошее настроение\">28&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class=\"fa fa-list-ol fa-lg\" title=\"Этот день вы провели с пользой\"></i></td>" + 
                 "\n</tr>" + 
                 "\n</table>";
         return table;
@@ -159,37 +159,37 @@ public class HtmlTableMonthCreatorTest {
                 "\n</tr>" + 
                 "\n<tr>" + 
                 "\n\t<td>3</td>" + 
-                "\n\t<td class=\"good\" title=\"У вас было хорошее настроение\">4&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class=\"fa fa-list-ol fa-lg\"></i></td>" + 
+                "\n\t<td class=\"good\" title=\"У вас было хорошее настроение\">4&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class=\"fa fa-list-ol fa-lg\" title=\"Этот день вы провели с пользой\"></i></td>" + 
                 "\n\t<td>5</td>" + 
                 "\n\t<td>6</td>" + 
                 "\n\t<td>7</td>" + 
-                "\n\t<td class=\"good\" title=\"У вас было хорошее настроение\">8&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class=\"fa fa-list-ol fa-lg\"></i></td>" + 
+                "\n\t<td class=\"good\" title=\"У вас было хорошее настроение\">8&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class=\"fa fa-list-ol fa-lg\" title=\"Этот день вы провели с пользой\"></i></td>" + 
                 "\n\t<td>9</td>" + 
                 "\n</tr>" + 
                 "\n<tr>" + 
                 "\n\t<td>10</td>" + 
                 "\n\t<td>11</td>" + 
-                "\n\t<td class=\"good\" title=\"У вас было хорошее настроение\">12&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class=\"fa fa-list-ol fa-lg\"></i></td>" + 
+                "\n\t<td class=\"good\" title=\"У вас было хорошее настроение\">12&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class=\"fa fa-list-ol fa-lg\" title=\"Этот день вы провели с пользой\"></i></td>" + 
                 "\n\t<td>13</td>" + 
                 "\n\t<td>14</td>" + 
                 "\n\t<td>15</td>" + 
-                "\n\t<td class=\"good\" title=\"У вас было хорошее настроение\">16&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class=\"fa fa-list-ol fa-lg\"></i></td>" + 
+                "\n\t<td class=\"good\" title=\"У вас было хорошее настроение\">16&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class=\"fa fa-list-ol fa-lg\" title=\"Этот день вы провели с пользой\"></i></td>" + 
                 "\n</tr>" + 
                 "\n<tr>" + 
                 "\n\t<td>17</td>" + 
                 "\n\t<td>18</td>" + 
                 "\n\t<td>19</td>" + 
-                "\n\t<td class=\"good\" title=\"У вас было хорошее настроение\">20&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class=\"fa fa-list-ol fa-lg\"></i></td>" + 
+                "\n\t<td class=\"good\" title=\"У вас было хорошее настроение\">20&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class=\"fa fa-list-ol fa-lg\" title=\"Этот день вы провели с пользой\"></i></td>" + 
                 "\n\t<td>21</td>" + 
                 "\n\t<td>22</td>" + 
                 "\n\t<td>23</td>" + 
                 "\n</tr>" + 
                 "\n<tr>" + 
-                "\n\t<td class=\"good\" title=\"У вас было хорошее настроение\">24&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class=\"fa fa-list-ol fa-lg\"></i></td>" + 
+                "\n\t<td class=\"good\" title=\"У вас было хорошее настроение\">24&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class=\"fa fa-list-ol fa-lg\" title=\"Этот день вы провели с пользой\"></i></td>" + 
                 "\n\t<td>25</td>" + 
                 "\n\t<td>26</td>" + 
                 "\n\t<td>27</td>" + 
-                "\n\t<td class=\"good\" title=\"У вас было хорошее настроение\">28&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class=\"fa fa-list-ol fa-lg\"></i></td>" + 
+                "\n\t<td class=\"good\" title=\"У вас было хорошее настроение\">28&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class=\"fa fa-list-ol fa-lg\" title=\"Этот день вы провели с пользой\"></i></td>" + 
                 "\n\t<td>29</td>" + 
                 "\n\t<td>30</td>" + 
                 "\n</tr>" + 
