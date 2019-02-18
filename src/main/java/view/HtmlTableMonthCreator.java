@@ -9,13 +9,11 @@ import model.Day;
 
 public class HtmlTableMonthCreator {
 
-    public String getMonthTable(Map<Integer, Day> month,
-            String dayAttribute) {
-        if(month.isEmpty()) {
+    public String getMonthTable(Map<Integer, Day> month, String dayAttribute) {
+        if (month.isEmpty()) {
             return createEmptyTable();
         }
-        
-        
+
         String ico = chooseIco(dayAttribute);
         Day day;
         boolean firstDay = true;
@@ -38,7 +36,7 @@ public class HtmlTableMonthCreator {
                 }
 
                 printRecordedDay(table, i, day, dayAttribute, ico);
-            } else {              
+            } else {
                 if (firstDay == false) {
                     printUnrecordedDay(table, i);
                 }
@@ -85,9 +83,8 @@ public class HtmlTableMonthCreator {
             String dayAttribute, String ico) {
         String space = "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp";
 
-        table.append(
-                "\n\t<td class=\"" + day.getMoodString() + "\" title=\"It was "
-                        + day.getMoodString().toLowerCase() + " day.\">");
+        table.append("\n\t<td class=\"" + day.getMoodString()
+                + "\" title=\"It was " + translateMood(day) + " day.\">");
         table.append(i);
 
         if (checkDayAttribute(day, dayAttribute)) {
@@ -96,6 +93,25 @@ public class HtmlTableMonthCreator {
 
         table.append("</td>");
         dayInWeekCounter(table);
+    }
+
+    private String translateMood(Day day) {
+        String moodEng = day.getMoodString().toLowerCase();
+        String moodRus = "";
+
+        switch (moodEng) {
+        case "good":
+            moodRus = "хорошее";
+            break;
+        case "normal":
+            moodRus = "нормальное";
+            break;
+        case "bad":
+            moodRus = "плохое";
+            break;
+        }
+
+        return moodRus;
     }
 
     private void printUnrecordedDay(StringBuilder table, int i) {
@@ -184,17 +200,17 @@ public class HtmlTableMonthCreator {
         }
         return ico;
     }
-    
+
     private String createEmptyTable() {
         StringBuilder table = new StringBuilder("<table>");
         table.append("\n<tr>");
-        
-        for(int i = 0; i < 5; i++) {
-            for(int j = 0; j < 7; j++) {
+
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 7; j++) {
                 emptyCell(table);
             }
         }
-        
+
         int lastTR = table.lastIndexOf("<tr>");
         table.delete(lastTR, lastTR + 4);
         table.append("</table>");
