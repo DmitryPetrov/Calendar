@@ -49,10 +49,7 @@ public class HtmlTableYearCreator {
                 day = month.get(i);
 
                 if (firstDay == true) {
-
-                    //printDaysOfLastMonthOnThisWeek(table, day);
                     printUnrecordedDaysOfBeginingThisMonth(table, day);
-                    
                     firstDay = false;
                 }
 
@@ -66,19 +63,6 @@ public class HtmlTableYearCreator {
         table.append("\n</tr>");
 
         return table;
-    }
-
-    private void printDaysOfLastMonthOnThisWeek(StringBuilder table, Day day) {
-        int intYear = day.getDate().get(Calendar.YEAR);
-        int intMonth = day.getDate().get(Calendar.MONTH);
-        Calendar date = new GregorianCalendar(intYear, intMonth, 1);
-        int lastDaysOfLastMonth = date.get(Calendar.DAY_OF_WEEK);
-
-        lastDaysOfLastMonth--;
-
-        for (int j = 1; j < lastDaysOfLastMonth; j++) {
-            emptyCell(table);
-        }
     }
     
     private void printUnrecordedDaysOfBeginingThisMonth(StringBuilder table,

@@ -11,19 +11,19 @@
 	<div id="main">
 	<main> 
 	<input id="tab1" type="radio" name="tabs" checked>
-	<label for="tab1">Useful day</label> 
+	<label for="tab1" title="Толстым шрифтом отмечены дни проведенные с пользой">Useful day</label> 
 	<input id="tab2" type="radio" name="tabs"> 
-	<label for="tab2">Work</label> 
+	<label for="tab2" title="Толстым шрифтом отмечены дни в которые вы работали">Work</label> 
 	<input id="tab3" type="radio" name="tabs"> 
-	<label for="tab3">Study</label> 
+	<label for="tab3" title="Толстым шрифтом отмечены дни в которые вы учились">Study</label> 
 	<input id="tab4" type="radio" name="tabs"> 
-	<label for="tab4">Learg Language</label>
+	<label for="tab4" title="Толстым шрифтом отмечены дни в которые вы практиковались в иностранных языках">Learg Language</label>
 	<input id="tab5" type="radio" name="tabs"> 
-	<label for="tab5">Sport</label>
+	<label for="tab5" title="Толстым шрифтом отмечены дни в которые вы занимались спортом">Sport</label>
 	<input id="tab6" type="radio" name="tabs"> 
-	<label for="tab6">Alcohol</label>
+	<label for="tab6" title="Толстым шрифтом отмечены дни в которые вы употребляли алкоголь">Alcohol</label>
 	<input id="tab7" type="radio" name="tabs"> 
-	<label for="tab7">Smoke</label>
+	<label for="tab7" title="Толстым шрифтом отмечены дни в которые вы курили">Smoke</label>
 
 	<section id="content1">
 		<p><% out.println((String) request.getAttribute("year_useful")); %></p>
