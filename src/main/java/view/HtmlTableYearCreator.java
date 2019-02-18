@@ -7,30 +7,27 @@ import java.util.Map;
 
 import model.Day;
 
-//¬Õ»Ã¿Õ»≈ √Œ¬ÕŒ Œƒ
+
 public class HtmlTableYearCreator {
 
     public String getYearTable(Map<Calendar, Map<Integer, Day>> year,
             String dayAttribute) {
-
         StringBuilder table = new StringBuilder();
         table.append("<table>");
 
-        int numYear =
+        int numberOfYear =
                 year.keySet().toArray(new GregorianCalendar[year.size()])[0]
                         .get(Calendar.YEAR);
 
         for (int i = 0; i < 12; i++) {
-
             String monthName = getMonthName(i);
 
-            Calendar monthOfYear = new GregorianCalendar(numYear, i, 1);
-            Map<Integer, Day> month = year.remove(monthOfYear);
+            Calendar numberOfMonth = new GregorianCalendar(numberOfYear, i, 1);
+            Map<Integer, Day> month = year.remove(numberOfMonth);
             int dayOfMonth =
-                    monthOfYear.getActualMaximum(Calendar.DAY_OF_MONTH);
+                    numberOfMonth.getActualMaximum(Calendar.DAY_OF_MONTH);
 
             if (month.isEmpty()) {
-
                 table.append(createEmptyMonthTable(monthName, dayOfMonth));
             } else {
                 table.append(getMonthTable(month, monthName, dayAttribute,
@@ -41,11 +38,14 @@ public class HtmlTableYearCreator {
         return table.toString();
     }
 
+    
     private StringBuilder getMonthTable(Map<Integer, Day> month,
             String monthName, String dayAttribute, int dayInMonth) {
         Day day;
         boolean firstDay = true;
+        
         StringBuilder table = new StringBuilder("<tr>");
+        
         table.append("\n\t<td class=\"monthName\">");
         table.append("<b>" + monthName + "</b>");
         table.append("</td>");
@@ -71,6 +71,7 @@ public class HtmlTableYearCreator {
         return table;
     }
 
+    
     private void printUnrecordedDaysOfBeginingThisMonth(StringBuilder table,
             Day day) {
         int UnrecordedDaysOfBeginingThisMonth =
@@ -80,10 +81,16 @@ public class HtmlTableYearCreator {
             printUnrecordedDay(table, j);
         }
     }
+    
+    private void printUnrecordedDay(StringBuilder table, int i) {
+        table.append("\n\t<td>");
+        table.append("<small>" + i + "</small>");
+        table.append("</td>");
+    }
 
+    
     private void printRecordedDay(StringBuilder table, int i, Day day,
             String dayAttribute) {
-
         table.append("\n\t<td class=\"" + day.getMoodString() + "\" "
                 + "title=\"” ‚‡Ò ·˚ÎÓ " + translateMood(day) + " Ì‡ÒÚÓÂÌËÂ\">");
 
@@ -115,12 +122,6 @@ public class HtmlTableYearCreator {
         return moodRus;
     }
 
-    private void printUnrecordedDay(StringBuilder table, int i) {
-        table.append("\n\t<td>");
-        table.append("<small>" + i + "</small>");
-        table.append("</td>");
-    }
-
     private boolean checkDayAttribute(Day day, String dayAttribute) {
         boolean bool = false;
 
@@ -150,6 +151,7 @@ public class HtmlTableYearCreator {
         return bool;
     }
 
+    
     private StringBuilder createEmptyMonthTable(String monthName,
             int dayOfMonth) {
         StringBuilder table = new StringBuilder("\n<tr>");
@@ -169,6 +171,7 @@ public class HtmlTableYearCreator {
         return table;
     }
 
+    
     private String getMonthName(int monthNum) {
         String monthName = "Unknown Month";
 
