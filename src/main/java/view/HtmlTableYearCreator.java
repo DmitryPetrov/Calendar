@@ -6,44 +6,50 @@ import java.util.GregorianCalendar;
 import java.util.Map;
 
 import model.Day;
+
 //ВНИМАНИЕ ГОВНОКОД
 public class HtmlTableYearCreator {
 
     public String getYearTable(Map<Calendar, Map<Integer, Day>> year,
             String dayAttribute) {
-        
+
         StringBuilder table = new StringBuilder();
         table.append("<table>");
-        
-        int numYear =  year.keySet().toArray(new GregorianCalendar[year.size()])[0].get(Calendar.YEAR); 
-        
-        for(int i = 0; i < 12; i++) {
-            
+
+        int numYear =
+                year.keySet().toArray(new GregorianCalendar[year.size()])[0]
+                        .get(Calendar.YEAR);
+
+        for (int i = 0; i < 12; i++) {
+
             String monthName = getMonthName(i);
-            
+
             Calendar monthOfYear = new GregorianCalendar(numYear, i, 1);
-            Map<Integer, Day> month =  year.remove(monthOfYear);
-            int dayOfMonth = monthOfYear.getActualMaximum(Calendar.DAY_OF_MONTH);
-            
-            if(month.isEmpty()) {
-                
+            Map<Integer, Day> month = year.remove(monthOfYear);
+            int dayOfMonth =
+                    monthOfYear.getActualMaximum(Calendar.DAY_OF_MONTH);
+
+            if (month.isEmpty()) {
+
                 table.append(createEmptyMonthTable(monthName, dayOfMonth));
             } else {
-                table.append(getMonthTable(month, monthName, dayAttribute, dayOfMonth));
+                table.append(getMonthTable(month, monthName, dayAttribute,
+                        dayOfMonth));
             }
         }
         table.append("</table>");
         return table.toString();
     }
 
-    private StringBuilder getMonthTable(Map<Integer, Day> month, String monthName, String dayAttribute, int dayInMonth) {
+    private StringBuilder getMonthTable(Map<Integer, Day> month,
+            String monthName, String dayAttribute, int dayInMonth) {
         Day day;
         boolean firstDay = true;
         StringBuilder table = new StringBuilder("<tr>");
         table.append("\n\t<td class=\"monthName\">");
         table.append("<b>" + monthName + "</b>");
         table.append("</td>");
-        
+
         for (int i = 1; i <= dayInMonth; i++) {
             if (month.containsKey(i)) {
                 day = month.get(i);
@@ -64,7 +70,7 @@ public class HtmlTableYearCreator {
 
         return table;
     }
-    
+
     private void printUnrecordedDaysOfBeginingThisMonth(StringBuilder table,
             Day day) {
         int UnrecordedDaysOfBeginingThisMonth =
@@ -78,10 +84,8 @@ public class HtmlTableYearCreator {
     private void printRecordedDay(StringBuilder table, int i, Day day,
             String dayAttribute) {
 
-        table.append(
-                "\n\t<td class=\"" + day.getMoodString() + "\" title=\"It was "
-                        + day.getMoodString().toLowerCase() + " day.\">");
-        
+        table.append("\n\t<td class=\"" + day.getMoodString() + "\" "
+                + "title=\"Это был " + translateMood(day) + " день.\">");
 
         if (checkDayAttribute(day, dayAttribute)) {
             table.append("<b>" + i + "</b>");
@@ -90,6 +94,25 @@ public class HtmlTableYearCreator {
         }
 
         table.append("</td>");
+    }
+
+    private String translateMood(Day day) {
+        String moodEng = day.getMoodString().toLowerCase();
+        String moodRus = "";
+
+        switch (moodEng) {
+        case "good":
+            moodRus = "хорошее";
+            break;
+        case "normal":
+            moodRus = "нормальное";
+            break;
+        case "bad":
+            moodRus = "плохое";
+            break;
+        }
+
+        return moodRus;
     }
 
     private void printUnrecordedDay(StringBuilder table, int i) {
@@ -127,14 +150,15 @@ public class HtmlTableYearCreator {
         return bool;
     }
 
-    private StringBuilder createEmptyMonthTable(String monthName, int dayOfMonth) {
+    private StringBuilder createEmptyMonthTable(String monthName,
+            int dayOfMonth) {
         StringBuilder table = new StringBuilder("\n<tr>");
 
         table.append("\n\t<td class=\"monthName\">");
         table.append("<b>" + monthName + "</b>");
         table.append("</td>");
-        
-        for(int i = 1; i <= dayOfMonth; i++) {
+
+        for (int i = 1; i <= dayOfMonth; i++) {
             table.append("\n\t<td>");
             table.append("<small>" + i + "</small>");
             table.append("</td>");
@@ -144,10 +168,10 @@ public class HtmlTableYearCreator {
 
         return table;
     }
-    
+
     private String getMonthName(int monthNum) {
         String monthName = "Unknown Month";
-        
+
         switch (monthNum) {
         case 0:
             monthName = "Januar";
@@ -188,7 +212,7 @@ public class HtmlTableYearCreator {
         default:
             break;
         }
-        
+
         return monthName;
     }
 }
