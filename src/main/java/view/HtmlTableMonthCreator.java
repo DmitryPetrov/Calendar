@@ -175,25 +175,25 @@ public class HtmlTableMonthCreator {
 
         switch (dayAttribute) {
         case "useful":
-            ico = "<i class=\"fa fa-list-ol fa-lg\"></i>";
+            ico = "<i class=\"fa fa-list-ol fa-lg\" title=\"Этот день вы провели с пользой\"></i>";
             break;
         case "work":
-            ico = "<i class=\"fa fa-industry fa-lg\"></i>";
+            ico = "<i class=\"fa fa-industry fa-lg\" title=\"В этот день вы работали\"></i>";
             break;
         case "study":
-            ico = "<i class=\"fa fa-graduation-cap fa-lg\"></i>";
+            ico = "<i class=\"fa fa-graduation-cap fa-lg\" title=\"В этот день вы учились\"></i>";
             break;
         case "learn_language":
-            ico = "<i class=\"fa fa-language fa-lg\"></i>";
+            ico = "<i class=\"fa fa-language fa-lg\" title=\"В этот день вы практиковались в иностранных языках\"></i>";
             break;
         case "sport":
-            ico = "<i class=\"fa fa-futbol-o fa-lg\"></i>";
+            ico = "<i class=\"fa fa-futbol-o fa-lg\" title=\"В этот день вы занимались спортом\"></i>";
             break;
         case "alcohol":
-            ico = "<i class=\"fa fa-glass fa-lg\"></i>";
+            ico = "<i class=\"fa fa-glass fa-lg\" title=\"В этот день вы употребляли алкоголь\"></i>";
             break;
         case "smoke":
-            ico = "<i class=\"fa fa-fire fa-lg\"></i>";
+            ico = "<i class=\"fa fa-fire fa-lg\" title=\"В этот день вы курили\"></i>";
             break;
         default:
             ico = "";
