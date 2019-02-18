@@ -90,31 +90,12 @@ public class HtmlTableYearCreator {
         }
 
         table.append("</td>");
-        dayInWeekCounter();
     }
 
     private void printUnrecordedDay(StringBuilder table, int i) {
         table.append("\n\t<td>");
         table.append("<small>" + i + "</small>");
         table.append("</td>");
-        dayInWeekCounter();
-    }
-
-    private void emptyCell(StringBuilder table) {
-        table.append("\n\t<td>");
-        table.append(".");
-        table.append("</td>");
-        dayInWeekCounter();
-    }
-
-    private int dayCounter = 0;
-
-    private void dayInWeekCounter() {
-        dayCounter++;
-
-        if (dayCounter == 7) {
-            dayCounter = 0;
-        }
     }
 
     private boolean checkDayAttribute(Day day, String dayAttribute) {
