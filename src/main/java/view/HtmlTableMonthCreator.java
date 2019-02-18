@@ -84,7 +84,7 @@ public class HtmlTableMonthCreator {
         String space = "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp";
 
         table.append("\n\t<td class=\"" + day.getMoodString()
-                + "\" title=\"It was " + translateMood(day) + " day.\">");
+                + "\" title=\"У вас было " + translateMood(day) + " настроение\">");
         table.append(i);
 
         if (checkDayAttribute(day, dayAttribute)) {
