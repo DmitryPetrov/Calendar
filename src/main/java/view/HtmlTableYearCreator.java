@@ -85,7 +85,7 @@ public class HtmlTableYearCreator {
             String dayAttribute) {
 
         table.append("\n\t<td class=\"" + day.getMoodString() + "\" "
-                + "title=\"Это был " + translateMood(day) + " день.\">");
+                + "title=\"У вас было " + translateMood(day) + " настроение\">");
 
         if (checkDayAttribute(day, dayAttribute)) {
             table.append("<b>" + i + "</b>");
