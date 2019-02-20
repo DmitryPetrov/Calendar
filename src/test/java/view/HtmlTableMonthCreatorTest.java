@@ -22,9 +22,23 @@ public class HtmlTableMonthCreatorTest {
         HtmlTableMonthCreator creator = new HtmlTableMonthCreator();
         String table = creator.getMonthTable(new HashMap<Integer, Day>(), "useful");
         
-        boolean resultRegExrTest = regularExpressionsTest(table);
+        boolean resultRegExrTest = regularExpressionsTestEmptyTable(table);
         assertTrue(resultRegExrTest);
     }
+
+    private boolean regularExpressionsTestEmptyTable(String table) {
+        String regex = "^<table>"
+                            + "(\n<tr>"
+                                + "(\n\t<td*[^>]>*[^<]</td>){7}"
+                            + "\n</tr>){4,6}"
+                        + "\n</table>$";
+        
+        Pattern pattern = Pattern.compile(regex, Pattern.CASE_INSENSITIVE);
+        Matcher matcher = pattern.matcher(table);
+        
+        return matcher.find();
+    }
+    
     
     @Test
     public void getMonthTable_FullMap_HtmlTable() {
@@ -34,8 +48,11 @@ public class HtmlTableMonthCreatorTest {
         HtmlTableMonthCreator creator = new HtmlTableMonthCreator();
         String table = creator.getMonthTable(month, "useful");
         
+        System.out.println("\n\n\n" + table + "\n\n\n");
+        
+        
         boolean resultRegExrTest = regularExpressionsTest(table);
-        //assertTrue(resultRegExrTest);
+        assertTrue(resultRegExrTest);
  
         assertEquals(getFilledTableFebruary2010(), table);
     }
@@ -56,7 +73,22 @@ public class HtmlTableMonthCreatorTest {
     
     
     private boolean regularExpressionsTest(String table) {
-        String regex = "^<table>(\n<tr>(\n\t<td*[^>]>*[^<]</td>){7}\n</tr>){4,6}\n</table>$";
+        String regex = "^<table>"
+                            + "(\n<tr>"
+                                + "("
+                                + "\n\t<td"
+                                    + "\\sclass=\"\\w+\""
+                                    + "\\stitle=\"[Р-пр-џ\\s]+\">"
+                                        + "\\d{1,2}"
+                                        + "(&nbsp){8}"
+                                        + "<i"
+                                            + "\\sclass=\"[a-z\\s-]+\""
+                                            + "\\stitle=\"[Р-пр-џ\\s]+\">"
+                                        + "</i>"
+                                + "</td>"
+                                + "){7}"
+                            + "\n</tr>){4,6}"
+                        + "\n</table>$";
         
         Pattern pattern = Pattern.compile(regex, Pattern.CASE_INSENSITIVE);
         Matcher matcher = pattern.matcher(table);
