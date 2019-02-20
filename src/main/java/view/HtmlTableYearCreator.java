@@ -34,7 +34,7 @@ public class HtmlTableYearCreator {
                         dayOfMonth));
             }
         }
-        table.append("</table>");
+        table.append("\n</table>");
         return table.toString();
     }
 
