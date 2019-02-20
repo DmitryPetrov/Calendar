@@ -1,6 +1,5 @@
 package view;
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import java.util.Calendar;
@@ -59,14 +58,9 @@ public class HtmlTableMonthCreatorTest {
         month = fillMapJanuar2022(month);
         String table = creator.getMonthTable(month, "useful");
         
-        System.out.println("\n\n\n" + table + "\n\n\n");
-        
         boolean resultRegExrTest = regularExpressionsTest(table);
         assertTrue(resultRegExrTest);
-        
-        assertEquals(getFilledTableJanuar2022(), table);
     }
-    
     
     
     private boolean regularExpressionsTest(String table) {
@@ -132,65 +126,5 @@ public class HtmlTableMonthCreatorTest {
         day.setSmoke(false);
         
         return day;
-    }
-    
-    private String getFilledTableJanuar2022() {
-        String table = "<table>" + 
-                "\n<tr>" + 
-                "\n\t<td>.</td>" + 
-                "\n\t<td>.</td>" + 
-                "\n\t<td>.</td>" + 
-                "\n\t<td>.</td>" + 
-                "\n\t<td>.</td>" + 
-                "\n\t<td>1</td>" + 
-                "\n\t<td>2</td>" + 
-                "\n</tr>" + 
-                "\n<tr>" + 
-                "\n\t<td>3</td>" + 
-                "\n\t<td class=\"good\" title=\"У вас было хорошее настроение\">4&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class=\"fa fa-list-ol fa-lg\" title=\"Этот день вы провели с пользой\"></i></td>" + 
-                "\n\t<td>5</td>" + 
-                "\n\t<td>6</td>" + 
-                "\n\t<td>7</td>" + 
-                "\n\t<td class=\"good\" title=\"У вас было хорошее настроение\">8&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class=\"fa fa-list-ol fa-lg\" title=\"Этот день вы провели с пользой\"></i></td>" + 
-                "\n\t<td>9</td>" + 
-                "\n</tr>" + 
-                "\n<tr>" + 
-                "\n\t<td>10</td>" + 
-                "\n\t<td>11</td>" + 
-                "\n\t<td class=\"good\" title=\"У вас было хорошее настроение\">12&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class=\"fa fa-list-ol fa-lg\" title=\"Этот день вы провели с пользой\"></i></td>" + 
-                "\n\t<td>13</td>" + 
-                "\n\t<td>14</td>" + 
-                "\n\t<td>15</td>" + 
-                "\n\t<td class=\"good\" title=\"У вас было хорошее настроение\">16&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class=\"fa fa-list-ol fa-lg\" title=\"Этот день вы провели с пользой\"></i></td>" + 
-                "\n</tr>" + 
-                "\n<tr>" + 
-                "\n\t<td>17</td>" + 
-                "\n\t<td>18</td>" + 
-                "\n\t<td>19</td>" + 
-                "\n\t<td class=\"good\" title=\"У вас было хорошее настроение\">20&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class=\"fa fa-list-ol fa-lg\" title=\"Этот день вы провели с пользой\"></i></td>" + 
-                "\n\t<td>21</td>" + 
-                "\n\t<td>22</td>" + 
-                "\n\t<td>23</td>" + 
-                "\n</tr>" + 
-                "\n<tr>" + 
-                "\n\t<td class=\"good\" title=\"У вас было хорошее настроение\">24&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class=\"fa fa-list-ol fa-lg\" title=\"Этот день вы провели с пользой\"></i></td>" + 
-                "\n\t<td>25</td>" + 
-                "\n\t<td>26</td>" + 
-                "\n\t<td>27</td>" + 
-                "\n\t<td class=\"good\" title=\"У вас было хорошее настроение\">28&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class=\"fa fa-list-ol fa-lg\" title=\"Этот день вы провели с пользой\"></i></td>" + 
-                "\n\t<td>29</td>" + 
-                "\n\t<td>30</td>" + 
-                "\n</tr>" + 
-                "\n<tr>" + 
-                "\n\t<td>31</td>" + 
-                "\n\t<td>.</td>" + 
-                "\n\t<td>.</td>" + 
-                "\n\t<td>.</td>" + 
-                "\n\t<td>.</td>" + 
-                "\n\t<td>.</td>" + 
-                "\n\t<td>.</td>" + 
-                "\n</tr>" + 
-                "\n</table>";
-        return table;
     }
 }
