@@ -59,8 +59,10 @@ public class HtmlTableMonthCreatorTest {
         month = fillMapJanuar2022(month);
         String table = creator.getMonthTable(month, "useful");
         
+        System.out.println("\n\n\n" + table + "\n\n\n");
+        
         boolean resultRegExrTest = regularExpressionsTest(table);
-        //assertTrue(resultRegExrTest);
+        assertTrue(resultRegExrTest);
         
         assertEquals(getFilledTableJanuar2022(), table);
     }
@@ -72,14 +74,15 @@ public class HtmlTableMonthCreatorTest {
                             + "(\n<tr>"
                                 + "("
                                 + "\n\t<td"
-                                    + "\\sclass=\"\\w+\""
-                                    + "\\stitle=\"[Р-пр-џ\\s]+\">"
-                                        + "\\d{1,2}"
-                                        + "(&nbsp){8}"
+                                    + "(\\sclass=\"\\w+\""
+                                    + "\\stitle=\"[Р-пр-џ\\s]+\")?>"
+                                        + "(\\.)?"
+                                        + "(\\d{1,2})?"
+                                        + "((&nbsp){8}"
                                         + "<i"
                                             + "\\sclass=\"[a-z\\s-]+\""
                                             + "\\stitle=\"[Р-пр-џ\\s]+\">"
-                                        + "</i>"
+                                        + "</i>)?"
                                 + "</td>"
                                 + "){7}"
                             + "\n</tr>){4,6}"
