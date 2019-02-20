@@ -44,7 +44,7 @@ public class HtmlTableYearCreator {
         Day day;
         boolean firstDay = true;
         
-        StringBuilder table = new StringBuilder("<tr>");
+        StringBuilder table = new StringBuilder("\n<tr>");
         
         table.append("\n\t<td class=\"monthName\">");
         table.append("<b>" + monthName + "</b>");
