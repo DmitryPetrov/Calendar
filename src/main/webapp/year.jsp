@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Calendar month</title>
+<title>Calendar year</title>
 <link href="css/year.css" rel="stylesheet">
 </head>
 <body>
