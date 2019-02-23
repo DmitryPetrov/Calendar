@@ -43,37 +43,37 @@
 		
 		<tr id='second_font'>
 			<td><form class="sendForm" id="1">
-				<p><% out.println((String) request.getAttribute("week_html")); %></p>
+				<p><% out.println((String) request.getAttribute("week_monday")); %></p>
 				<div id="result"></div>
 				</form></td>
 				
 			<td><form class="sendForm" id="2">
-				<p><% out.println((String) request.getAttribute("week_html")); %></p>
+				<p><% out.println((String) request.getAttribute("week_tuesday")); %></p>
 				<div id="result"> </div>
 				</form></td>	
 				
 			<td><form class="sendForm" id="3">
-				<p><% out.println((String) request.getAttribute("week_html")); %></p>
+				<p><% out.println((String) request.getAttribute("week_wednesday")); %></p>
 				<div id="result"> </div>
 				</form></td>	
 				
 			<td><form class="sendForm" id="4">
-				<p><% out.println((String) request.getAttribute("week_html")); %></p>
+				<p><% out.println((String) request.getAttribute("week_thursday")); %></p>
 				<div id="result"> </div>
 				</form></td>	
 				
 			<td><form class="sendForm" id="5">
-				<p><% out.println((String) request.getAttribute("week_html")); %></p>
+				<p><% out.println((String) request.getAttribute("week_friday")); %></p>
 				<div id="result"> </div>
 				</form></td>		
 							
 			<td><form class="sendForm" id="6">
-				<p><% out.println((String) request.getAttribute("week_html")); %></p>
+				<p><% out.println((String) request.getAttribute("week_saturday")); %></p>
 				<div id="result"> </div>
 				</form></td>	
 				
 			<td><form class="sendForm" id="0">
-				<p><% out.println((String) request.getAttribute("week_html")); %></p>
+				<p><% out.println((String) request.getAttribute("week_sunday")); %></p>
 				<div id="result"> </div>
 				</form></td>		
 	</table>

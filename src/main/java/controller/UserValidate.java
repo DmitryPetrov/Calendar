@@ -50,7 +50,7 @@ public class UserValidate extends HttpServlet {
 
         selectUserFromDataBase(request, response);
 
-        String page = "/week.html";
+        String page = "/WeekPrep";
         RequestDispatcher dispatcher =
                 getServletContext().getRequestDispatcher(page);
         dispatcher.forward(request, response);

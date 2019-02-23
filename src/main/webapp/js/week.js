@@ -67,5 +67,5 @@ function printDayOfWeek(dayOfWeekEng, dayOfWeekRus) {
 	if (getWeekDay(date) === dayOfWeekEng) {
 		document.write('<strong>▼</strong><br>');
 	}
-	document.write(dayOfWeekRus + ' (' + monday.getDate() + ')');	 
+	document.write(dayOfWeekRus + ' (' + eval(dayOfWeekEng).getDate() + ')');	 
 }

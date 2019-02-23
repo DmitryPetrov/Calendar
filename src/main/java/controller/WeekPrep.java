@@ -42,7 +42,13 @@ public class WeekPrep extends HttpServlet {
         if (user == null) {
             page = "/index.html";
         } else {
-            request.setAttribute("week_table", createWeekHtmlTable());
+            request.setAttribute("week_monday", createWeekHtmlTable("monday"));
+            request.setAttribute("week_tuesday", createWeekHtmlTable("tuesday"));
+            request.setAttribute("week_wednesday", createWeekHtmlTable("wednesday"));
+            request.setAttribute("week_thursday", createWeekHtmlTable("thursday"));
+            request.setAttribute("week_friday", createWeekHtmlTable("friday"));
+            request.setAttribute("week_saturday", createWeekHtmlTable("saturday"));
+            request.setAttribute("week_sunday", createWeekHtmlTable("sunday"));
         }
 
         RequestDispatcher dispatcher =
@@ -50,12 +56,12 @@ public class WeekPrep extends HttpServlet {
         dispatcher.forward(request, response);
     }
 
-    private String createWeekHtmlTable() {
+    private String createWeekHtmlTable(String dayOfWeek) {
         String table = "<table class=\"inner_table\">" + 
                 "<tr><td>" + 
                 "   <script>" + 
                 "       document.write(\"<input type=\\\"hidden\\\" name=\\\"date\\\" value=\\\"\" " + 
-                "       + (1900 + monday.getYear()) + \"-\" + monday.getMonth() + \"-\" + monday.getDate() + \"\\\">\"); " + 
+                "       + (1900 + " + dayOfWeek + ".getYear()) + \"-\" + " + dayOfWeek + ".getMonth() + \"-\" + " + dayOfWeek + ".getDate() + \"\\\">\"); " + 
                 "   </script>" + 
                 "</td></tr>" + 
                 "<tr><td class=\"inner_table_radio\" title=\"Ваше настроение в этот день\">" + 
