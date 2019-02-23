@@ -71,7 +71,7 @@
 				</tr>
 				<tr class="side_bar">
 					<td class="side_bar">
-						<a href="week.html">Set this week</a>
+						<a href="WeekPrep">Set this week</a>
 					</td>
 				</tr>
 				<tr class="side_bar">
