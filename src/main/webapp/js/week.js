@@ -62,3 +62,4 @@ function correctionToRussianWeek() {
 	}
 	return dayOfWeek;
 }
+
