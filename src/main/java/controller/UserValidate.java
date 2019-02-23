@@ -2,14 +2,8 @@
 package controller;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.sql.SQLException;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Properties;
-
 import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -17,7 +11,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import dbconnector.ConnectorMySql;
 import dbconnector.DataBaseConnector;
 import exceptions.StringContaintsScriptException;
 import model.User;
@@ -45,8 +38,6 @@ public class UserValidate extends HttpServlet {
             HttpServletResponse response) throws ServletException, IOException {
 
         System.out.println("/UserValidate");
-
-        initDataBaseConnector();
 
         selectUserFromDataBase(request, response);
 
@@ -120,47 +111,7 @@ public class UserValidate extends HttpServlet {
 
         return user;
     } 
-
-    private void initDataBaseConnector() {
-        Map<String, String> dbProperties = readDataBaseProperties();
-
-        DataBaseConnector connector = new ConnectorMySql(dbProperties);
-
-        ServletContext servletContext = getServletContext();
-        servletContext.setAttribute("connector", connector);
-    }
-
-    private Map<String, String> readDataBaseProperties() {
-        ServletContext servletContext = getServletContext();
-
-        String driver = null;
-        String url = null;
-        String username = null;
-        String password = null;
-
-        try (InputStream input = servletContext.getResourceAsStream(
-                "WEB-INF/properties/DBconfig.properties");) {
-
-            Properties property = new Properties();
-            property.load(input);
-
-            driver = property.getProperty("jdbc.mysql.driver");
-            url = property.getProperty("jdbc.mysql.url");
-            username = property.getProperty("jdbc.mysql.username");
-            password = property.getProperty("jdbc.mysql.password");
-        } catch (IOException e) {
-            System.out.println("\n" + "Create connection failed \n" + e);
-        }
-
-        Map<String, String> dbProperties = new HashMap<String, String>();
-
-        dbProperties.put("driver", driver);
-        dbProperties.put("url", url);
-        dbProperties.put("username", username);
-        dbProperties.put("password", password);
-
-        return dbProperties;
-    }
+    
 
     /**
      * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse

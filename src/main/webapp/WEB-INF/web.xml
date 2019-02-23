@@ -5,6 +5,9 @@
 	id="WebApp_ID" version="3.1">
 	
 	<display-name>Archetype Created Web Application</display-name>
+	<listener>
+		<listener-class>controller.DataBaseConnection</listener-class>
+	</listener>
 
 	<servlet>
 		<servlet-name>month</servlet-name>
