@@ -14,72 +14,31 @@
 	<main>
 	<table class="outer_table">
 		<tr><th class="outer_table" colspan="7">
-				<script>    
-					document.write(getMonthYear(date) + ' ' + (1900 + date.getYear()));
-				</script></th></tr>
-		
+			<script>document.write(getMonthYear(date) + ' ' + (1900 + date.getYear()));</script></th></tr>
 		
 		<tr>
 			<td align="center" class="table_hat">
-				<script>    
-				    if (getWeekDay(date) === 'monday') {
-				    	 document.write('<strong>▼</strong><br>');
-				    }
-				    document.write('ПН (' + monday.getDate() + ')');
-			    </script>
-			</td>
-			<td align="center" class="table_hat">
-				<script>    
-				    if (getWeekDay(date) === 'tuesday') {
-				    	 document.write('<strong>▼</strong><br>');
-				    }
-				    document.write('ВТ (' + tuesday.getDate() + ')');
-			    </script>
-			</td>
-			<td align="center" class="table_hat">
-				<script>    
-				    if (getWeekDay(date) === 'wednesday') {
-				    	 document.write('<strong>▼</strong><br>');
-				    }
-				    document.write('СР (' + wednesday.getDate() + ')');
-			    </script>
-			</td>
-			<td align="center" class="table_hat">
-				<script>    
-				    if (getWeekDay(date) === 'thursday') {
-				    	 document.write('<strong>▼</strong><br>');
-				    }				
-				    document.write('ЧТ (' + thursday.getDate() + ')');
-			    </script>
-			</td>
-			<td align="center" class="table_hat">
-				<script>    
-				    if (getWeekDay(date) === 'friday') {
-				    	 document.write('<strong>▼</strong><br>');
-				    }
-				    document.write('ПТ (' + friday.getDate() + ')');
-			    </script>
+				<script>printDayOfWeek('monday', 'ПН');</script></td>
 			    
-			</td>
 			<td align="center" class="table_hat">
-				<script>    
-				    if (getWeekDay(date) === 'saturday') {
-				    	 document.write('<strong>▼</strong><br>');
-				    }
-				    document.write('СБ (' + saturday.getDate() + ')');
-			    </script>
+				<script>printDayOfWeek('tuesday', 'ВТ');</script></td>
 			    
-			</td>
 			<td align="center" class="table_hat">
-				<script>    
-				    if (getWeekDay(date) === 'sunday') {
-				    	 document.write('<strong>▼</strong><br>');
-				    }
-				    document.write('ВС (' + sunday.getDate() + ')');
-			    </script>
+				<script>printDayOfWeek('wednesday', 'СР');</script></td>
 			    
-			</td>
+			<td align="center" class="table_hat">
+				<script>printDayOfWeek('thursday', 'ЧТ');</script></td>
+			    
+			<td align="center" class="table_hat">
+				<script>printDayOfWeek('friday', 'ПТ');</script></td>
+			    
+			<td align="center" class="table_hat">
+				<script>printDayOfWeek('saturday', 'СБ');</script></td>
+			   
+			<td align="center" class="table_hat">
+				<script>printDayOfWeek('sunday', 'ВС');</script></td>
 		</tr>
+		
 		<tr id='second_font'>
 			<td>
 				<form class="sendForm" id="1">

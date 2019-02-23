@@ -16,357 +16,69 @@
 	<main>
 	<table class="outer_table">
 		<tr><th class="outer_table" colspan="7">
-				<script>    
-					document.write(getMonthYear(date) + ' ' + (1900 + date.getYear()));
-				</script></th></tr>
-		
-		
+			<script>document.write(getMonthYear(date) + ' ' + (1900 + date.getYear()));</script></th></tr>
+
 		<tr>
 			<td align="center" class="table_hat">
-				<script>    
-				    if (getWeekDay(date) === 'monday') {
-				    	 document.write('<strong>▼</strong><br>');
-				    }
-				    document.write('ПН (' + monday.getDate() + ')');
-			    </script>
-			</td>
-			<td align="center" class="table_hat">
-				<script>    
-				    if (getWeekDay(date) === 'tuesday') {
-				    	 document.write('<strong>▼</strong><br>');
-				    }
-				    document.write('ВТ (' + tuesday.getDate() + ')');
-			    </script>
-			</td>
-			<td align="center" class="table_hat">
-				<script>    
-				    if (getWeekDay(date) === 'wednesday') {
-				    	 document.write('<strong>▼</strong><br>');
-				    }
-				    document.write('СР (' + wednesday.getDate() + ')');
-			    </script>
-			</td>
-			<td align="center" class="table_hat">
-				<script>    
-				    if (getWeekDay(date) === 'thursday') {
-				    	 document.write('<strong>▼</strong><br>');
-				    }				
-				    document.write('ЧТ (' + thursday.getDate() + ')');
-			    </script>
-			</td>
-			<td align="center" class="table_hat">
-				<script>    
-				    if (getWeekDay(date) === 'friday') {
-				    	 document.write('<strong>▼</strong><br>');
-				    }
-				    document.write('ПТ (' + friday.getDate() + ')');
-			    </script>
+				<script>printDayOfWeek('monday', 'ПН');</script></td>
 			    
-			</td>
 			<td align="center" class="table_hat">
-				<script>    
-				    if (getWeekDay(date) === 'saturday') {
-				    	 document.write('<strong>▼</strong><br>');
-				    }
-				    document.write('СБ (' + saturday.getDate() + ')');
-			    </script>
+				<script>printDayOfWeek('tuesday', 'ВТ');</script></td>
 			    
-			</td>
 			<td align="center" class="table_hat">
-				<script>    
-				    if (getWeekDay(date) === 'sunday') {
-				    	 document.write('<strong>▼</strong><br>');
-				    }
-				    document.write('ВС (' + sunday.getDate() + ')');
-			    </script>
+				<script>printDayOfWeek('wednesday', 'СР');</script></td>
 			    
-			</td>
+			<td align="center" class="table_hat">
+				<script>printDayOfWeek('thursday', 'ЧТ');</script></td>
+			    
+			<td align="center" class="table_hat">
+				<script>printDayOfWeek('friday', 'ПТ');</script></td>
+			    
+			<td align="center" class="table_hat">
+				<script>printDayOfWeek('saturday', 'СБ');</script></td>
+			   
+			<td align="center" class="table_hat">
+				<script>printDayOfWeek('sunday', 'ВС');</script></td>
 		</tr>
+		
 		<tr id='second_font'>
-			<td>
-				<form class="sendForm" id="1">
-				<table class="inner_table">
-					<tr><td>
-						<script>    
-						document.write("<input type=\"hidden\" name=\"date\" value=\"" 
-								+ (1900 + monday.getYear()) + "-" + monday.getMonth() + "-" + monday.getDate() + "\">"); 
-						</script>
-					</td></tr>
-					<tr><td class="inner_table_radio" title="Ваше настроение в этот день">
-						<p><input type="radio" name="mood" value="GOOD"> GOOD
-						<p><input type="radio" name="mood" value="NORMAL" checked> NORM
-						<p><input type="radio" name="mood" value="BAD"> BAD</td></tr>
-					<tr><td class="inner_table" title="Этот день прошел продуктивно">
-						<input type="checkbox" name="useful" value="true">
-						<i class="fa fa-list-ol fa-lg"></i></td></tr>
-					<tr><td class="inner_table" title="В этот день вы работали">
-						<input type="checkbox" name="work" value="true">
-						<i class="fa fa-industry fa-lg"></i></td></tr>	
-					<tr><td class="inner_table" title="В этот день вы учились">
-						<input type="checkbox" name="study" value="true">
-						<i class="fa fa-graduation-cap fa-lg"></i></td></tr>
-					<tr><td class="inner_table" title="В этот день вы практиковались в иностранных языках">
-						<input type="checkbox" name="learnLanguag" value="true">
-						<i class="fa fa-language fa-lg"></i></td></tr>
-					<tr><td class="inner_table" title="В этот день вы занимались спортом">
-						<input type="checkbox" name="sport" value="true">
-						<i class="fa fa-futbol-o fa-lg"></i></td></tr>
-					<tr><td class="inner_table" title="В этот день вы употребляли алкоголь">
-						<input type="checkbox" name="alcohol" value="true">
-						<i class="fa fa-glass fa-lg"></i></td></tr>
-					<tr><td class="inner_table" title="В этот день вы курили">
-						<input type="checkbox" name="smoke" value="true">
-						<i class="fa fa-fire fa-lg"></i></td></tr>
-					<tr><td class="inner_table">
-						<input class="result" type="submit" value="Submit"></td></tr>
-				</table>
+			<td><form class="sendForm" id="1">
+				<p><% out.println((String) request.getAttribute("week_html")); %></p>
 				<div id="result"></div>
-				</form>
-			</td>
-			<td>	
-				<form class="sendForm" id="2">
-				<table class="inner_table">
-					<tr><td>
-						<script>    
-						document.write("<input type=\"hidden\" name=\"date\" value=\"" 
-								+ (1900 + tuesday.getYear()) + "-" + tuesday.getMonth() + "-" + tuesday.getDate() + "\">");
-						</script>
-					</td></tr>
-					<tr><td class="inner_table_radio" title="Ваше настроение в этот день">
-						<p><input type="radio" name="mood" value="GOOD"> GOOD
-						<p><input type="radio" name="mood" value="NORMAL" checked> NORM
-						<p><input type="radio" name="mood" value="BAD"> BAD</td></tr>
-					<tr><td class="inner_table" title="Этот день прошел продуктивно">
-						<input type="checkbox" name="useful" value="true">
-						<i class="fa fa-list-ol fa-lg"></i></td></tr>
-					<tr><td class="inner_table" title="В этот день вы работали">
-						<input type="checkbox" name="work" value="true">
-						<i class="fa fa-industry fa-lg"></i></td></tr>	
-					<tr><td class="inner_table" title="В этот день вы учились">
-						<input type="checkbox" name="study" value="true">
-						<i class="fa fa-graduation-cap fa-lg"></i></td></tr>
-					<tr><td class="inner_table" title="В этот день вы практиковались в иностранных языках">
-						<input type="checkbox" name="learnLanguag" value="true">
-						<i class="fa fa-language fa-lg"></i></td></tr>
-					<tr><td class="inner_table" title="В этот день вы занимались спортом">
-						<input type="checkbox" name="sport" value="true">
-						<i class="fa fa-futbol-o fa-lg"></i></td></tr>
-					<tr><td class="inner_table" title="В этот день вы употребляли алкоголь">
-						<input type="checkbox" name="alcohol" value="true">
-						<i class="fa fa-glass fa-lg"></i></td></tr>
-					<tr><td class="inner_table" title="В этот день вы курили">
-						<input type="checkbox" name="smoke" value="true">
-						<i class="fa fa-fire fa-lg"></i></td></tr>
-					<tr><td class="inner_table">
-						<input class="result" type="submit" value="Submit"></td></tr>
-				</table>
+				</form></td>
+				
+			<td><form class="sendForm" id="2">
+				<p><% out.println((String) request.getAttribute("week_html")); %></p>
 				<div id="result"> </div>
-				</form>
-			</td>	
-			<td>	
-				<form class="sendForm" id="3">
-				<table class="inner_table">
-					<tr><td>
-						<script>    
-						document.write("<input type=\"hidden\" name=\"date\" value=\"" 
-								+ (1900 + wednesday.getYear()) + "-" + wednesday.getMonth() + "-" + wednesday.getDate() + "\">");
-						</script>
-					</td></tr>
-					<tr><td class="inner_table_radio" title="Ваше настроение в этот день">
-						<p><input type="radio" name="mood" value="GOOD"> GOOD
-						<p><input type="radio" name="mood" value="NORMAL" checked> NORM
-						<p><input type="radio" name="mood" value="BAD"> BAD</td></tr>
-					<tr><td class="inner_table" title="Этот день прошел продуктивно">
-						<input type="checkbox" name="useful" value="true">
-						<i class="fa fa-list-ol fa-lg"></i></td></tr>
-					<tr><td class="inner_table" title="В этот день вы работали">
-						<input type="checkbox" name="work" value="true">
-						<i class="fa fa-industry fa-lg"></i></td></tr>	
-					<tr><td class="inner_table" title="В этот день вы учились">
-						<input type="checkbox" name="study" value="true">
-						<i class="fa fa-graduation-cap fa-lg"></i></td></tr>
-					<tr><td class="inner_table" title="В этот день вы практиковались в иностранных языках">
-						<input type="checkbox" name="learnLanguag" value="true">
-						<i class="fa fa-language fa-lg"></i></td></tr>
-					<tr><td class="inner_table" title="В этот день вы занимались спортом">
-						<input type="checkbox" name="sport" value="true">
-						<i class="fa fa-futbol-o fa-lg"></i></td></tr>
-					<tr><td class="inner_table" title="В этот день вы употребляли алкоголь">
-						<input type="checkbox" name="alcohol" value="true">
-						<i class="fa fa-glass fa-lg"></i></td></tr>
-					<tr><td class="inner_table" title="В этот день вы курили">
-						<input type="checkbox" name="smoke" value="true">
-						<i class="fa fa-fire fa-lg"></i></td></tr>
-					<tr><td class="inner_table">
-						<input class="result" type="submit" value="Submit"></td></tr>
-				</table>
+				</form></td>	
+				
+			<td><form class="sendForm" id="3">
+				<p><% out.println((String) request.getAttribute("week_html")); %></p>
 				<div id="result"> </div>
-				</form>
-			</td>	
-			<td>	
-				<form class="sendForm" id="4">
-				<table class="inner_table">
-					<tr><td>
-						<script>    
-						document.write("<input type=\"hidden\" name=\"date\" value=\"" 
-								+ (1900 + thursday.getYear()) + "-" + thursday.getMonth() + "-" + thursday.getDate() + "\">");
-						</script>
-					</td></tr>
-					<tr><td class="inner_table_radio" title="Ваше настроение в этот день">
-						<p><input type="radio" name="mood" value="GOOD"> GOOD
-						<p><input type="radio" name="mood" value="NORMAL" checked> NORM
-						<p><input type="radio" name="mood" value="BAD"> BAD</td></tr>
-					<tr><td class="inner_table" title="Этот день прошел продуктивно">
-						<input type="checkbox" name="useful" value="true">
-						<i class="fa fa-list-ol fa-lg"></i></td></tr>
-					<tr><td class="inner_table" title="В этот день вы работали">
-						<input type="checkbox" name="work" value="true">
-						<i class="fa fa-industry fa-lg"></i></td></tr>	
-					<tr><td class="inner_table" title="В этот день вы учились">
-						<input type="checkbox" name="study" value="true">
-						<i class="fa fa-graduation-cap fa-lg"></i></td></tr>
-					<tr><td class="inner_table" title="В этот день вы практиковались в иностранных языках">
-						<input type="checkbox" name="learnLanguag" value="true">
-						<i class="fa fa-language fa-lg"></i></td></tr>
-					<tr><td class="inner_table" title="В этот день вы занимались спортом">
-						<input type="checkbox" name="sport" value="true">
-						<i class="fa fa-futbol-o fa-lg"></i></td></tr>
-					<tr><td class="inner_table" title="В этот день вы употребляли алкоголь">
-						<input type="checkbox" name="alcohol" value="true">
-						<i class="fa fa-glass fa-lg"></i></td></tr>
-					<tr><td class="inner_table" title="В этот день вы курили">
-						<input type="checkbox" name="smoke" value="true">
-						<i class="fa fa-fire fa-lg"></i></td></tr>
-					<tr><td class="inner_table">
-						<input class="result" type="submit" value="Submit"></td></tr>
-				</table>
+				</form></td>	
+				
+			<td><form class="sendForm" id="4">
+				<p><% out.println((String) request.getAttribute("week_html")); %></p>
 				<div id="result"> </div>
-				</form>
-			</td>	
-			<td>
-				<form class="sendForm" id="5">
-				<table class="inner_table">
-					<tr><td>
-						<script>    
-						document.write("<input type=\"hidden\" name=\"date\" value=\"" 
-								+ (1900 + friday.getYear()) + "-" + friday.getMonth() + "-" + friday.getDate() + "\">");
-						</script>
-					</td></tr>
-					<tr><td class="inner_table_radio" title="Ваше настроение в этот день">
-						<p><input type="radio" name="mood" value="GOOD"> GOOD
-						<p><input type="radio" name="mood" value="NORMAL" checked> NORM
-						<p><input type="radio" name="mood" value="BAD"> BAD</td></tr>
-					<tr><td class="inner_table" title="Этот день прошел продуктивно">
-						<input type="checkbox" name="useful" value="true">
-						<i class="fa fa-list-ol fa-lg"></i></td></tr>
-					<tr><td class="inner_table" title="В этот день вы работали">
-						<input type="checkbox" name="work" value="true">
-						<i class="fa fa-industry fa-lg"></i></td></tr>	
-					<tr><td class="inner_table" title="В этот день вы учились">
-						<input type="checkbox" name="study" value="true">
-						<i class="fa fa-graduation-cap fa-lg"></i></td></tr>
-					<tr><td class="inner_table" title="В этот день вы практиковались в иностранных языках">
-						<input type="checkbox" name="learnLanguag" value="true">
-						<i class="fa fa-language fa-lg"></i></td></tr>
-					<tr><td class="inner_table" title="В этот день вы занимались спортом">
-						<input type="checkbox" name="sport" value="true">
-						<i class="fa fa-futbol-o fa-lg"></i></td></tr>
-					<tr><td class="inner_table" title="В этот день вы употребляли алкоголь">
-						<input type="checkbox" name="alcohol" value="true">
-						<i class="fa fa-glass fa-lg"></i></td></tr>
-					<tr><td class="inner_table" title="В этот день вы курили">
-						<input type="checkbox" name="smoke" value="true">
-						<i class="fa fa-fire fa-lg"></i></td></tr>
-					<tr><td class="inner_table">
-						<input class="result" type="submit" value="Submit"></td></tr>
-				</table>
+				</form></td>	
+				
+			<td><form class="sendForm" id="5">
+				<p><% out.println((String) request.getAttribute("week_html")); %></p>
 				<div id="result"> </div>
-				</form>
-			</td>					
-			<td>	
-				<form class="sendForm" id="6">
-				<table class="inner_table">
-					<tr><td>
-						<script>    
-						document.write("<input type=\"hidden\" name=\"date\" value=\"" 
-								+ (1900 + saturday.getYear()) + "-" + saturday.getMonth() + "-" + saturday.getDate() + "\">");
-						</script>
-					</td></tr>
-					<tr><td class="inner_table_radio" title="Ваше настроение в этот день">
-						<p><input type="radio" name="mood" value="GOOD"> GOOD
-						<p><input type="radio" name="mood" value="NORMAL" checked> NORM
-						<p><input type="radio" name="mood" value="BAD"> BAD</td></tr>
-					<tr><td class="inner_table" title="Этот день прошел продуктивно">
-						<input type="checkbox" name="useful" value="true">
-						<i class="fa fa-list-ol fa-lg"></i></td></tr>
-					<tr><td class="inner_table" title="В этот день вы работали">
-						<input type="checkbox" name="work" value="true">
-						<i class="fa fa-industry fa-lg"></i></td></tr>	
-					<tr><td class="inner_table" title="В этот день вы учились">
-						<input type="checkbox" name="study" value="true">
-						<i class="fa fa-graduation-cap fa-lg"></i></td></tr>
-					<tr><td class="inner_table" title="В этот день вы практиковались в иностранных языках">
-						<input type="checkbox" name="learnLanguag" value="true">
-						<i class="fa fa-language fa-lg"></i></td></tr>
-					<tr><td class="inner_table" title="В этот день вы занимались спортом">
-						<input type="checkbox" name="sport" value="true">
-						<i class="fa fa-futbol-o fa-lg"></i></td></tr>
-					<tr><td class="inner_table" title="В этот день вы употребляли алкоголь">
-						<input type="checkbox" name="alcohol" value="true">
-						<i class="fa fa-glass fa-lg"></i></td></tr>
-					<tr><td class="inner_table" title="В этот день вы курили">
-						<input type="checkbox" name="smoke" value="true">
-						<i class="fa fa-fire fa-lg"></i></td></tr>
-					<tr><td class="inner_table">
-						<input class="result" type="submit" value="Submit"></td></tr>
-				</table>
+				</form></td>		
+							
+			<td><form class="sendForm" id="6">
+				<p><% out.println((String) request.getAttribute("week_html")); %></p>
 				<div id="result"> </div>
-				</form>
-			</td>	
-			<td>	
-				<form class="sendForm" id="0">
-				<table class="inner_table">
-					<tr><td>
-						<script>    
-						document.write("<input type=\"hidden\" name=\"date\" value=\"" 
-								+ (1900 + sunday.getYear()) + "-" + sunday.getMonth() + "-" + sunday.getDate() + "\">");
-						</script>
-					</td></tr>
-					<tr><td class="inner_table_radio" title="Ваше настроение в этот день">
-						<p><input type="radio" name="mood" value="GOOD"> GOOD
-						<p><input type="radio" name="mood" value="NORMAL" checked> NORM
-						<p><input type="radio" name="mood" value="BAD"> BAD</td></tr>
-					<tr><td class="inner_table" title="Этот день прошел продуктивно">
-						<input type="checkbox" name="useful" value="true">
-						<i class="fa fa-list-ol fa-lg"></i></td></tr>
-					<tr><td class="inner_table" title="В этот день вы работали">
-						<input type="checkbox" name="work" value="true">
-						<i class="fa fa-industry fa-lg"></i></td></tr>	
-					<tr><td class="inner_table" title="В этот день вы учились">
-						<input type="checkbox" name="study" value="true">
-						<i class="fa fa-graduation-cap fa-lg"></i></td></tr>
-					<tr><td class="inner_table" title="В этот день вы практиковались в иностранных языках">
-						<input type="checkbox" name="learnLanguag" value="true">
-						<i class="fa fa-language fa-lg"></i></td></tr>
-					<tr><td class="inner_table" title="В этот день вы занимались спортом">
-						<input type="checkbox" name="sport" value="true">
-						<i class="fa fa-futbol-o fa-lg"></i></td></tr>
-					<tr><td class="inner_table" title="В этот день вы употребляли алкоголь">
-						<input type="checkbox" name="alcohol" value="true">
-						<i class="fa fa-glass fa-lg"></i></td></tr>
-					<tr><td class="inner_table" title="В этот день вы курили">
-						<input type="checkbox" name="smoke" value="true">
-						<i class="fa fa-fire fa-lg"></i></td></tr>
-					<tr><td class="inner_table">
-						<input class="result" type="submit" value="Submit"></td></tr>
-				</table>
+				</form></td>	
+				
+			<td><form class="sendForm" id="0">
+				<p><% out.println((String) request.getAttribute("week_html")); %></p>
 				<div id="result"> </div>
-				</form>
-			</td>		
+				</form></td>		
 	</table>
 		<script>
  			$(".sendForm").submit(function(event) {
-
 				var formID = $(this).attr("id"); // Получение ID формы на которой была нажата кнопка
 	            var formNm = $('#' + formID); //получение ссылки на форму
 
@@ -386,40 +98,33 @@
 	</div>
 	
 	<div class="side_bar">
-	 <main>
-	 	<table class="side_bar">
+	<main>
+		<table class="side_bar">
+				<tr class="side_bar">
+					<td class="side_bar">MENU</td></tr>
+					
 				<tr class="side_bar">
 					<td class="side_bar">
-						MENU
-					</td>
-				</tr>
+						<a href="index.html">Change user</a></td></tr>
+						
 				<tr class="side_bar">
 					<td class="side_bar">
-						<a href="index.html">Change user</a>
-					</td>
-				</tr>
+						<a href="week.html">Set this week</a></td></tr>
+						
 				<tr class="side_bar">
 					<td class="side_bar">
-						<a href="week.html">Set this week</a>
-					</td>
-				</tr>
+						<a href="MonthPrep">Show this month</a></td></tr>
+						
 				<tr class="side_bar">
 					<td class="side_bar">
-						<a href="MonthPrep">Show this month</a>
-					</td>
-				</tr>
+						<a href="YearPrep">Show this year</a></td></tr>
+						
 				<tr class="side_bar">
 					<td class="side_bar">
-						<a href="YearPrep">Show this year</a>
-					</td>
-				</tr>
-				<tr class="side_bar">
-					<td class="side_bar">
-						<a href="info.html">Information</a>
-					</td>
-				</tr>
-			</table>
-	 </main>
+						<a href="info.html">Information</a></td></tr>						
+		</table>
+	</main>
 	</div>
+	
 </body>
 </html>

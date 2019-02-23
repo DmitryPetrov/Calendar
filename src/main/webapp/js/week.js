@@ -62,4 +62,10 @@ function correctionToRussianWeek() {
 	}
 	return dayOfWeek;
 }
-
+ 
+function printDayOfWeek(dayOfWeekEng, dayOfWeekRus) {
+	if (getWeekDay(date) === dayOfWeekEng) {
+		document.write('<strong>▼</strong><br>');
+	}
+	document.write(dayOfWeekRus + ' (' + monday.getDate() + ')');	 
+}
