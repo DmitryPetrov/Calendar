@@ -76,7 +76,7 @@ public class ConnectorMySql implements DataBaseConnector{
 
     public boolean checkDataBaseUser(User user) throws SQLException {
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver").getDeclaredConstructor()
+            Class.forName(driver).getDeclaredConstructor()
                     .newInstance();
 
             try (Connection conn = getConnection();
@@ -104,7 +104,7 @@ public class ConnectorMySql implements DataBaseConnector{
     @Override
     public void selectUser(User user) {
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver").getDeclaredConstructor()
+            Class.forName(driver).getDeclaredConstructor()
                     .newInstance();
 
             try (Connection conn = getConnection();
@@ -131,7 +131,7 @@ public class ConnectorMySql implements DataBaseConnector{
     @Override
     public boolean checkDataBaseDay(User user, Day day) {
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver").getDeclaredConstructor()
+            Class.forName(driver).getDeclaredConstructor()
                     .newInstance();
 
             try (Connection conn = getConnection();
@@ -159,7 +159,7 @@ public class ConnectorMySql implements DataBaseConnector{
     @Override
     public void selectDay(User user, Day day) {
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver").getDeclaredConstructor()
+            Class.forName(driver).getDeclaredConstructor()
                     .newInstance();
 
             try (Connection conn = getConnection();
@@ -225,7 +225,7 @@ public class ConnectorMySql implements DataBaseConnector{
     private int comandExecute(String sqlComand) {
         int stringChanged = -1;
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver").getDeclaredConstructor()
+            Class.forName(driver).getDeclaredConstructor()
                     .newInstance();
 
             try (Connection conn = getConnection();
@@ -275,7 +275,7 @@ public class ConnectorMySql implements DataBaseConnector{
         Map<Integer, Day> monthMap = new HashMap<Integer, Day>();
         
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver").getDeclaredConstructor()
+            Class.forName(driver).getDeclaredConstructor()
                     .newInstance();
 
             try (Connection conn = getConnection();
