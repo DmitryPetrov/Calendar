@@ -30,27 +30,26 @@ public class DataBaseConnection implements ServletContextListener {
      * @see ServletContextListener#contextDestroyed(ServletContextEvent)
      */
     public void contextDestroyed(ServletContextEvent sce)  { 
-         // TODO Auto-generated method stub
+        DataBaseConnector connector = (DataBaseConnector) sce.getServletContext().getAttribute("connector");
+        connector.closeConnections();
     }
 
 	/**
      * @see ServletContextListener#contextInitialized(ServletContextEvent)
      */
     public void contextInitialized(ServletContextEvent sce)  { 
-        initDataBaseConnector(sce);
+        initDataBaseConnector(sce.getServletContext());
     }
     
-    private void initDataBaseConnector(ServletContextEvent event) {
-        Map<String, String> dbProperties = readDataBaseProperties(event);
+    private void initDataBaseConnector(ServletContext servletContext) {
+        Map<String, String> dbProperties = readDataBaseProperties(servletContext);
 
         DataBaseConnector connector = new ConnectorMySql(dbProperties);
 
-        ServletContext servletContext = event.getServletContext();
         servletContext.setAttribute("connector", connector);
     }
 
-    private Map<String, String> readDataBaseProperties(ServletContextEvent event) {
-        ServletContext servletContext = event.getServletContext();
+    private Map<String, String> readDataBaseProperties(ServletContext servletContext) {
 
         String driver = null;
         String url = null;
