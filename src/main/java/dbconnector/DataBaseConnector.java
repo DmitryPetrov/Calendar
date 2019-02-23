@@ -9,6 +9,8 @@ import model.*;
 
 public interface DataBaseConnector {
 
+    public void closeConnections();
+    
     public boolean checkDataBaseUser(User user) throws SQLException;
     
     public void selectUser(User user);

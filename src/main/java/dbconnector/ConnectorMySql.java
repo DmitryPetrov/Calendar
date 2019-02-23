@@ -65,6 +65,14 @@ public class ConnectorMySql implements DataBaseConnector{
         return dataSource.getConnection();
     }
     
+    public void closeConnections() {
+        try {
+            dataSource.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    
 
     public boolean checkDataBaseUser(User user) throws SQLException {
         try {
