@@ -3,6 +3,7 @@ package controller;
 
 import java.io.IOException;
 import java.sql.SQLException;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -16,16 +17,16 @@ import exceptions.StringContaintsScriptException;
 import model.User;
 
 /**
- * Servlet implementation class UserValidate
+ * Servlet implementation class NewUser
  */
-@WebServlet("/UserValidate")
-public class UserValidate extends HttpServlet {
+@WebServlet("/NewUser")
+public class NewUser extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public UserValidate() {
+    public NewUser() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -36,8 +37,7 @@ public class UserValidate extends HttpServlet {
      */
     protected void doGet(HttpServletRequest request,
             HttpServletResponse response) throws ServletException, IOException {
-
-        System.out.println("/UserValidate");
+        System.out.println("/NewUser");
 
         selectUserFromDataBase(request, response);
 
@@ -46,9 +46,9 @@ public class UserValidate extends HttpServlet {
                 getServletContext().getRequestDispatcher(page);
         dispatcher.forward(request, response);
     }
-
+    
     private void selectUserFromDataBase(HttpServletRequest request,
-            HttpServletResponse response) throws ServletException, IOException {
+            HttpServletResponse response) {
 
         DataBaseConnector connector = (DataBaseConnector) getServletContext()
                 .getAttribute("connector");
@@ -59,10 +59,7 @@ public class UserValidate extends HttpServlet {
             if (connector.checkDataBaseUser(user)) {
                 connector.selectUser(user);
             } else {
-                String page = "/create_account.html";
-                RequestDispatcher dispatcher =
-                        getServletContext().getRequestDispatcher(page);
-                dispatcher.forward(request, response);
+                connector.insertUser(user);
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -70,20 +67,27 @@ public class UserValidate extends HttpServlet {
         
         HttpSession session = request.getSession();
         session.setAttribute("user", user);
-    }
-    
+    }    
+
     private User createUser(HttpServletRequest request,
-            HttpServletResponse response) throws ServletException, IOException{
+            HttpServletResponse response) {
 
         String login = (String) request.getParameter("login");
         String password = (String) request.getParameter("password");
-        
+
         if ((login == null) || (password == null)) {
-            
+
             String page = "/index.html";
             RequestDispatcher dispatcher =
                     getServletContext().getRequestDispatcher(page);
-            dispatcher.forward(request, response);
+
+            try {
+                dispatcher.forward(request, response);
+            } catch (ServletException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
 
         User user = null;
@@ -91,15 +95,22 @@ public class UserValidate extends HttpServlet {
             user = new User(login, password);
         } catch (StringContaintsScriptException e) {
             e.printStackTrace();
-            
+
             String page = "/index.html";
             RequestDispatcher dispatcher =
                     getServletContext().getRequestDispatcher(page);
-            dispatcher.forward(request, response);
+
+            try {
+                dispatcher.forward(request, response);
+            } catch (ServletException e1) {
+                e1.printStackTrace();
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
         }
+
         return user;
-    } 
-    
+    }
 
     /**
      * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
